@@ -14,6 +14,9 @@
 
 ## alan'commit 4
 
+<<<<<<< HEAD
+## lijing's commit 1
+=======
 ## Johnny's commit 1
 
 ### testing merge
