@@ -47,8 +47,18 @@ export default function Login(props) {
           />
         </Form.Field>
 
-        <Button onClick={props.onClick}>Close</Button>
-        <Button type="submit" onClick={props.onLogin(user)}>
+        <Button
+          onClick={() => {
+            props.onClick;
+          }}
+        >
+          Close
+        </Button>
+        <Button
+          onClick={() => {
+            props.onLogin(user);
+          }}
+        >
           Login
         </Button>
       </Form>

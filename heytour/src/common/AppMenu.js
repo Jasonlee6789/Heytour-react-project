@@ -4,8 +4,10 @@ import Login from "../authentication/Login";
 
 export default function AppMenu() {
   const [loginOpen, setLoginOpen] = useState(false);
-  //   const [showButton, setShowButton] = useState(true);
-  //   const [username, setUsername] = useState("");
+
+  const [isUserLogin, setIsUserLogin] = useState(false);
+
+  const [userName, setUserName] = useState(null);
 
   function handleOpenLogin() {
     setLoginOpen(true);
@@ -16,22 +18,35 @@ export default function AppMenu() {
   }
 
   function handleLogin(username) {
-    //1.关闭button
-    // setShowButton(false);
-    //2.回传用户名在原来button位置
     console.log(username);
-    // return props.user;
+    if (username) {
+      //1.关闭button
+
+      setIsUserLogin(true);
+
+      //2.回传用户名在原来button位置
+      setUserName(username);
+    }
   }
+
   return (
     <div>
       <Menu size="large">
-        <Menu.Item name="Heytour-jing" />
+        <Menu.Item name="Heytour-Jing" />
         <Menu.Menu position="right">
           <Menu.Item>
-            <Button primary onClick={handleOpenLogin}>
-              Login
-            </Button>
-            {/* <div>uname</div> */}
+            {isUserLogin ? (
+              <div>{userName && userName}</div>
+            ) : (
+              <Button
+                primary
+                onClick={() => {
+                  handleOpenLogin();
+                }}
+              >
+                Login
+              </Button>
+            )}
           </Menu.Item>
         </Menu.Menu>
       </Menu>
