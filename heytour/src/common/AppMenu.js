@@ -20,11 +20,7 @@ export default function AppMenu() {
   function handleLogin(username) {
     console.log(username);
     if (username) {
-      //1.关闭button
-
       setIsUserLogin(true);
-
-      //2.回传用户名在原来button位置
       setUserName(username);
     }
   }
