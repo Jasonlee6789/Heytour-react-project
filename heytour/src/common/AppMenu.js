@@ -22,6 +22,7 @@ export default function AppMenu() {
     if (username) {
       setIsUserLogin(true);
       setUserName(username);
+      setLoginOpen(false);
     }
   }
 
