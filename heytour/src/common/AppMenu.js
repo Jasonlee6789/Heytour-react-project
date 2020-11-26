@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Menu, Button } from "semantic-ui-react";
-import Login from "../authentication/Login";
+import Login from "../authentication/Login.js";
 
 export default function AppMenu() {
   const [loginOpen, setLoginOpen] = useState(false);
@@ -22,6 +22,7 @@ export default function AppMenu() {
     if (username) {
       setIsUserLogin(true);
       setUserName(username);
+      setLoginOpen(false);
     }
   }
 
@@ -47,13 +48,11 @@ export default function AppMenu() {
         </Menu.Menu>
       </Menu>
 
-      {loginOpen && (
-        <Login
-          open={loginOpen}
-          onClick={handleLoginClose}
-          onLogin={handleLogin}
-        />
-      )}
+      <Login
+        open={loginOpen}
+        onClick={handleLoginClose}
+        onLogin={handleLogin}
+      />
     </div>
   );
 }
