@@ -67,7 +67,7 @@ export default function AppMenu() {
           onLogin={handleLogin}
         />
       )}
-      <Grid padded={"horizontally"}>
+      <Grid padded={(horizontally = true)}>
         <Grid.Column width={4}>
           <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
         </Grid.Column>
@@ -100,7 +100,7 @@ export default function AppMenu() {
         </Grid.Column>
       </Grid>
 
-      <Grid padded={"horizontally"}>
+      <Grid>
         <Grid.Column width={4}>
           <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
         </Grid.Column>
