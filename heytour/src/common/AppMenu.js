@@ -1,5 +1,5 @@
 import React, { useState, useReducer } from "react";
-import { Menu, Button, Grid, Image } from "semantic-ui-react";
+import { Menu, Button, Grid, Image, Card, Icon } from "semantic-ui-react";
 import Login from "../authentication/Login";
 import LoginReducer from "../authentication/LoginReducer";
 
@@ -67,31 +67,37 @@ export default function AppMenu() {
           onLogin={handleLogin}
         />
       )}
-
-      <Grid celled="internally">
-        <Grid.Row>
-          <Grid.Column width={3}>
-            <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
-          </Grid.Column>
-          <Grid.Column width={10}>
-            <Image src="https://react.semantic-ui.com/images/wireframe/centered-paragraph.png" />
-          </Grid.Column>
-          <Grid.Column width={3}>
-            <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
-          </Grid.Column>
-        </Grid.Row>
-
-        <Grid.Row>
-          <Grid.Column width={3}>
-            <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
-          </Grid.Column>
-          <Grid.Column width={10}>
-            <Image src="https://react.semantic-ui.com/images/wireframe/paragraph.png" />
-          </Grid.Column>
-          <Grid.Column width={3}>
-            <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
-          </Grid.Column>
-        </Grid.Row>
+      <Grid>
+        <Grid.Column width={4}>
+          <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+        </Grid.Column>
+        <Grid.Column width={9}>
+          <Image src="https://react.semantic-ui.com/images/wireframe/paragraph.png" />
+        </Grid.Column>
+        <Grid.Column width={3}>
+          <Card>
+            <Image
+              src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
+              wrapped
+              ui={false}
+            />
+            <Card.Content>
+              <Card.Header>Matthew</Card.Header>
+              <Card.Meta>
+                <span className="date">Joined in 2015</span>
+              </Card.Meta>
+              <Card.Description>
+                Matthew is a musician living in Nashville.
+              </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              <a>
+                <Icon name="user" />
+                22 Friends
+              </a>
+            </Card.Content>
+          </Card>
+        </Grid.Column>
       </Grid>
     </div>
   );
