@@ -3,7 +3,6 @@ import { Menu, Button, Grid, Image, Card, Icon } from "semantic-ui-react";
 import Login from "../authentication/Login";
 import LoginReducer from "../authentication/LoginReducer";
 import IndexList from "./List";
-
 export default function AppMenu() {
   const [loginOpen, setLoginOpen] = useState(false);
 
@@ -100,7 +99,7 @@ export default function AppMenu() {
           </Card>
         </Grid.Column>
       </Grid>
-      <IndexList />
+
       <Grid padded={"horizontally"}>
         <Grid.Column width={4}>
           <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
