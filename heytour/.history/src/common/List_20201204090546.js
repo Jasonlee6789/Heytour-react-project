@@ -33,7 +33,6 @@ function IndexList() {
       </div>
     );
   });
-  return <Card.Group>{getData}</Card.Group>;
 }
 
 export default IndexList;

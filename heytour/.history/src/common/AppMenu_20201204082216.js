@@ -68,7 +68,6 @@ export default function AppMenu() {
           onLogin={handleLogin}
         />
       )}
-      <IndexList />
     </div>
   );
 }
