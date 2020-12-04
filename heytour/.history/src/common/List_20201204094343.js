@@ -34,7 +34,7 @@ function IndexList() {
                 <Card.Meta>Post Date: {data.postedOn}</Card.Meta>
               </Card.Content>
               <Card.Content textAlign="left" fluid>
-                <Card.Description fluid="true">{data.jobDesc}</Card.Description>
+                <Card.Description fluid>{data.jobDesc}</Card.Description>
                 <Button
                   icon="plus"
                   floated="right"

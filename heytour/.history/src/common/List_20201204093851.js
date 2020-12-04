@@ -33,15 +33,8 @@ function IndexList() {
                 <Card.Meta>Email: {data.email}</Card.Meta>
                 <Card.Meta>Post Date: {data.postedOn}</Card.Meta>
               </Card.Content>
-              <Card.Content textAlign="left" fluid>
-                <Card.Description fluid="true">{data.jobDesc}</Card.Description>
-                <Button
-                  icon="plus"
-                  floated="right"
-                  content="Apply"
-                  color="green"
-                />
-
+              <Card.Content textAlign="left">
+                <Card.Description>{data.jobDesc}</Card.Description>
                 <Button icon="star" floated="right" content="Save" />
                 <Button
                   icon="thumbs down"
@@ -57,7 +50,7 @@ function IndexList() {
     );
   });
   return (
-    <Grid fluid padded>
+    <Grid padded fluid>
       {getData}
     </Grid>
   );
