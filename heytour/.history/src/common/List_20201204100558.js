@@ -34,7 +34,7 @@ function IndexList() {
                 <Card.Meta>Post Date: {data.postedOn}</Card.Meta>
               </Card.Content>
               <Card.Content textAlign="left">
-                <Card.Description>{data.jobDesc}</Card.Description>
+                <Card.Description fluid="true">{data.jobDesc}</Card.Description>
                 <Button
                   icon="plus"
                   floated="right"
@@ -56,7 +56,11 @@ function IndexList() {
       </div>
     );
   });
-  return <Grid>{getData}</Grid>;
+  return (
+    <Grid fluid padded>
+      {getData}
+    </Grid>
+  );
 }
 
 export default IndexList;

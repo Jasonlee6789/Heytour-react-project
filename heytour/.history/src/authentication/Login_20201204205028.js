@@ -106,13 +106,7 @@ export default function Login(props) {
           >
             Login
           </Button>
-          {state.isError && (
-            <Message
-              error
-              header="Login Failed"
-              content="Please check your username and password."
-            />
-          )}
+          {state.isError && <Message />}
         </Form>
       </Modal.Content>
     </Modal>

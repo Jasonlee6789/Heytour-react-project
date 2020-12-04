@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useReducer } from "react";
-import { Button, Form, Modal, Message } from "semantic-ui-react";
+import { Button, Form, Modal } from "semantic-ui-react";
 import { useLogin } from "./LoginAPI";
 import authReducer from "./LoginReducer";
 
@@ -106,15 +106,8 @@ export default function Login(props) {
           >
             Login
           </Button>
-          {state.isError && (
-            <Message
-              error
-              header="Login Failed"
-              content="Please check your username and password."
-            />
-          )}
-        </Form>
-      </Modal.Content>
+        </Modal.Content>
+      </Form>
     </Modal>
   );
 }
