@@ -8,7 +8,7 @@ function IndexList() {
       <Grid.Row>
         <Grid.Column width={16}>
           <Card fluid>
-            <Card.Content textAlign="left">
+            <Card.Content>
               <Card.Header>
                 <Image src={data.picture} size="small" floated="right" />
                 {data.title} -- {data.company}

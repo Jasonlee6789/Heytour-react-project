@@ -58,7 +58,7 @@ export default function Login(props) {
     <Modal
       closeIcon
       onClose={props.onClose}
-      // onOpen={() => props.onOpen}
+      onOpen={() => props.onOpen}
       open={props.open}
     >
       <Modal.Header>登录框</Modal.Header>
@@ -100,7 +100,7 @@ export default function Login(props) {
             />
           </Form.Field>
 
-          <Button onClick={props.onClose}>Close</Button>
+          <Button onClick={props.onClick}>Close</Button>
           <Button
             type="submit"
             // onClick={() => {

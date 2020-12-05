@@ -57,8 +57,8 @@ export default function Login(props) {
   return (
     <Modal
       closeIcon
-      onClose={props.onClose}
-      // onOpen={() => props.onOpen}
+      onClose={() => props.onClose}
+      onOpen={() => props.onOpen}
       open={props.open}
     >
       <Modal.Header>登录框</Modal.Header>
@@ -69,8 +69,8 @@ export default function Login(props) {
           error={state.isError}
         >
           <Form.Field>
+            <label>输入用户名</label>
             <Form.Input
-              label="输入用户名"
               type="text"
               placeholder="User Name"
               required
@@ -86,8 +86,8 @@ export default function Login(props) {
           </Form.Field>
 
           <Form.Field>
+            <label>输入密码</label>
             <Form.Input
-              label="输入密码"
               type="password"
               placeholder="Password"
               required
@@ -100,7 +100,7 @@ export default function Login(props) {
             />
           </Form.Field>
 
-          <Button onClick={props.onClose}>Close</Button>
+          <Button onClick={props.onClick}>Close</Button>
           <Button
             type="submit"
             // onClick={() => {

@@ -5,17 +5,17 @@ import data from "../job-list/data.json";
 function IndexList() {
   const getData = data.map((data) => {
     return (
-      <Grid.Row>
-        <Grid.Column width={16}>
-          <Card fluid>
-            <Card.Content textAlign="left">
+      <div key={data.id}>
+        <Grid.Row>
+          <Card>
+            <Card.Content>
               <Card.Header>
                 <Image src={data.picture} size="small" floated="right" />
                 {data.title} -- {data.company}
               </Card.Header>
             </Card.Content>
 
-            <Card.Content textAlign="left">
+            <Card.Content>
               <Card.Meta>
                 Status:{" "}
                 {data.isActive ? (
@@ -46,8 +46,8 @@ function IndexList() {
               <Button icon="star" floated="right" content="Save" color="red" />
             </Card.Content>
           </Card>
-        </Grid.Column>
-      </Grid.Row>
+        </Grid.Row>
+      </div>
     );
   });
   return <Grid padded>{getData}</Grid>;

@@ -50,15 +50,15 @@ export default function Login(props) {
   function handleChange(e, { name, value }) {
     dispatch({
       type: "AUTH_TYPING",
-      payload: { name: name, value: value },
+      payload: { name: username, value: value },
     });
   }
 
   return (
     <Modal
       closeIcon
-      onClose={props.onClose}
-      // onOpen={() => props.onOpen}
+      onClose={() => props.onClose}
+      onOpen={() => props.onOpen}
       open={props.open}
     >
       <Modal.Header>登录框</Modal.Header>
@@ -69,8 +69,8 @@ export default function Login(props) {
           error={state.isError}
         >
           <Form.Field>
-            <Form.Input
-              label="输入用户名"
+            <label>输入用户名</label>
+            <input
               type="text"
               placeholder="User Name"
               required
@@ -86,8 +86,8 @@ export default function Login(props) {
           </Form.Field>
 
           <Form.Field>
-            <Form.Input
-              label="输入密码"
+            <label>输入密码</label>
+            <input
               type="password"
               placeholder="Password"
               required
@@ -100,7 +100,7 @@ export default function Login(props) {
             />
           </Form.Field>
 
-          <Button onClick={props.onClose}>Close</Button>
+          <Button onClick={props.onClick}>Close</Button>
           <Button
             type="submit"
             // onClick={() => {

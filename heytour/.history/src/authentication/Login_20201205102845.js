@@ -100,7 +100,7 @@ export default function Login(props) {
             />
           </Form.Field>
 
-          <Button onClick={props.onClose}>Close</Button>
+          <Button onClick={props.onClick}>Close</Button>
           <Button
             type="submit"
             // onClick={() => {

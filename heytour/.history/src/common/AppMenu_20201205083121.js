@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import { Menu, Button } from "semantic-ui-react";
 import Login from "../authentication/Login";
-import appMenuReducer from "./AppMenuReducer";
+import appMenuReducer from ".AppMenuReducer";
 import IndexList from "./List";
 
 export default function AppMenu() {
@@ -28,23 +28,21 @@ export default function AppMenu() {
 
   function handleOpenLogin() {
     // setLoginOpen(true);
-    dispatch({ type: "AUTHENTICATING" });
+    dispatch({ type: "AUTHENTICATED" });
   }
 
   function handleLoginClose() {
-    // setLoginOpen(false);
-    dispatch({ type: "UNAUTHENTICATED" });
+    setLoginOpen(false);
   }
 
-  function handleLogin(user) {
-    console.log(user);
-    // dispatch({ type: "login" });
-    dispatch({ type: "AUTHENTICATED", payload: { user: user } });
-    // if (username) {
-    //   setIsUserLogin(true);
-    //   setUserName(username);
-    //   setLoginOpen(false);
-    // }
+  function handleLogin(username) {
+    console.log(username);
+    dispatch({ type: "login" });
+    if (username) {
+      setIsUserLogin(true);
+      setUserName(username);
+      setLoginOpen(false);
+    }
   }
 
   return (
@@ -52,7 +50,7 @@ export default function AppMenu() {
       <Menu size="large">
         <Menu.Item name="Heytour-Jing" />
         <Menu.Menu position="right">
-          {/* <Menu.Item>
+          <Menu.Item>
             {isUserLogin ? (
               <div>{userName && userName}</div>
             ) : (
@@ -65,41 +63,14 @@ export default function AppMenu() {
                 Login
               </Button>
             )}
-          </Menu.Item> */}
-          {!state.authenticated && (
-            <Menu.Item>
-              <Button primary onClick={handleOpenLogin}>
-                Login
-              </Button>
-            </Menu.Item>
-          )}
-          {state.authenticated && (
-            <Menu.Item
-              name={state.user.firstName + " " + state.user.lastName}
-            />
-          )}
-
-          {state.authenticated && (
-            <Menu.Item>
-              <Button primary onClick={handleLoginClose}>
-                Logout
-              </Button>
-            </Menu.Item>
-          )}
+          </Menu.Item>
         </Menu.Menu>
       </Menu>
 
-      {/* {loginOpen && (
+      {loginOpen && (
         <Login
           open={loginOpen}
           onClick={handleLoginClose}
-          onLogin={handleLogin}
-        />
-      )} */}
-      {state.authOpen && (
-        <Login
-          open={state.authOpen}
-          onClose={handleLoginClose}
           onLogin={handleLogin}
         />
       )}

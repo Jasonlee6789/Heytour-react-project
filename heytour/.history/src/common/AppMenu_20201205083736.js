@@ -28,7 +28,7 @@ export default function AppMenu() {
 
   function handleOpenLogin() {
     // setLoginOpen(true);
-    dispatch({ type: "AUTHENTICATING" });
+    dispatch({ type: "AUTHENTICATED" });
   }
 
   function handleLoginClose() {
@@ -81,7 +81,7 @@ export default function AppMenu() {
 
           {state.authenticated && (
             <Menu.Item>
-              <Button primary onClick={handleLoginClose}>
+              <Button primary onClick={handleLogout}>
                 Logout
               </Button>
             </Menu.Item>
@@ -97,9 +97,9 @@ export default function AppMenu() {
         />
       )} */}
       {state.authOpen && (
-        <Login
+        <Auth
           open={state.authOpen}
-          onClose={handleLoginClose}
+          onClose={handleCloseAuth}
           onLogin={handleLogin}
         />
       )}

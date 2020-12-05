@@ -28,7 +28,7 @@ export default function AppMenu() {
 
   function handleOpenLogin() {
     // setLoginOpen(true);
-    dispatch({ type: "AUTHENTICATING" });
+    dispatch({ type: "AUTHENTICATING", payload: {} });
   }
 
   function handleLoginClose() {
