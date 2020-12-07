@@ -104,7 +104,7 @@ export default function AppMenu() {
           onLogin={handleLogin}
         />
       )}
-      <JobList />
+      <JobListContent />
     </div>
   );
 }

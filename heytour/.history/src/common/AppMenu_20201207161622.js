@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import { Menu, Button } from "semantic-ui-react";
 import Login from "../authentication/Login";
 import appMenuReducer from "./AppMenuReducer";
-import JobList from "../job-list/JobList";
+import JobListContent from "../job-list/List";
 
 export default function AppMenu() {
   // const [loginOpen, setLoginOpen] = useState(false);
@@ -104,7 +104,7 @@ export default function AppMenu() {
           onLogin={handleLogin}
         />
       )}
-      <JobList />
+      <JobListContent />
     </div>
   );
 }
