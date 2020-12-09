@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Image, Card, Grid, Icon } from "semantic-ui-react";
 // import data from "./data.json";
-import moment from "moment";
+// import moment from "moment";
 
 function JobListContent(props) {
   // const data = data.map((props.job) => {
@@ -21,9 +21,9 @@ function JobListContent(props) {
               <br />
               Company Name: {props.job.company}
             </Card.Header>
-            <Card.Description>
+            {/* <Card.Description>
               {"Listed On: " + moment(props.job.postedOn).format("YYYY-MM-DD")}
-            </Card.Description>
+            </Card.Description> */}
           </Card.Content>
 
           <Card.Content textAlign="left">
