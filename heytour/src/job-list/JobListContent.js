@@ -3,7 +3,7 @@ import { Button, Image, Card, Grid, Icon } from "semantic-ui-react";
 // import data from "./data.json";
 import moment from "moment";
 
-function JobListContent(props) {
+export default function JobListContent(props) {
   // const data = data.map((props.job) => {
   return (
     <Grid.Row>
@@ -58,5 +58,3 @@ function JobListContent(props) {
   // });
   // return <Grid padded>{data.job}</Grid>;
 }
-
-export default JobListContent;
