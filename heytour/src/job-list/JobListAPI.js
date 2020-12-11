@@ -68,7 +68,7 @@ export function useJobList(initialFilter) {
 //   useEffect(() => {
 //     const getJobList = async () => {
 //       dispatch({ type: "FETCH_INIT" });
-//       const url = "http://localhost/api/jobs";
+//       const url = "http://localhost/ApiController/jobs";
 //       try {
 //         const response = await axios.get(url);
 //         console.log(response);
