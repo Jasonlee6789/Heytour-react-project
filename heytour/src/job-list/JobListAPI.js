@@ -1,6 +1,6 @@
 import { useState, useEffect, useReducer, useRef } from "react";
 import JobData from "./data.json";
-// import axios from "axios";
+import axios from "axios";
 
 function jobAPIReducer(state, action) {
   switch (action.type) {
@@ -57,29 +57,29 @@ export function useJobList(initialFilter) {
   return [state, setFilter];
 }
 
-// function useGetAPI(initialURL) {
-//   const [url, setURL] = useState(initialURL);
+function useGetAPI(initialURL) {
+  const [url, setURL] = useState(initialURL);
 
-//   const [state, dispatch] = useReducer(jobAPIReducer, {
-//     isLoading: false,
-//     isError: false,
-//     data: action.payload,
-//   });
-//   useEffect(() => {
-//     const getJobList = async () => {
-//       dispatch({ type: "FETCH_INIT" });
-//       const url = "http://localhost/ApiController/jobs";
-//       try {
-//         const response = await axios.get(url);
-//         console.log(response);
-//         dispatch({ type: "FETCH_SUCCESS", payload: response.data });
-//       } catch (error) {
-//         console.log(error);
-//         dispatch({ type: "FETCH_FAILURE" });
-//       }
-//     };
-//     getJobList();
-//   }, [url]);
+  const [state, dispatch] = useReducer(jobAPIReducer, {
+    isLoading: false,
+    isError: false,
+    data: action.payload,
+  });
+  useEffect(() => {
+    const getJobList = async () => {
+      dispatch({ type: "FETCH_INIT" });
+      const url = "http://localhost/ApiController/jobs";
+      try {
+        const response = await axios.get(url);
+        console.log(response);
+        dispatch({ type: "FETCH_SUCCESS", payload: response.data });
+      } catch (error) {
+        console.log(error);
+        dispatch({ type: "FETCH_FAILURE" });
+      }
+    };
+    getJobList();
+  }, [url]);
 
-//   return [state, setURL];
-// }
+  return [state, setURL];
+}
