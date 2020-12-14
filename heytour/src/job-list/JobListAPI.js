@@ -1,5 +1,5 @@
 import { useState, useEffect, useReducer, useRef } from "react";
-import JobData from "./data.json";
+// import JobData from "./data.json";
 import axios from "axios";
 
 function jobAPIReducer(state, action) {
@@ -33,7 +33,7 @@ export function useJobList(initialFilter) {
   const didMountRef = useRef(true);
   //修改ref的值不会重新render,在组件更新时触发设置成true
   //达成在第一次渲染时，会不会render这个地方
-  const data = JobData;
+  // const data = JobData;
   const [filter, setFilter] = useState(null);
   //时间排序 比如找出最近一周的工作。
   const [state, dispatch] = useReducer(jobAPIReducer, {
@@ -42,33 +42,17 @@ export function useJobList(initialFilter) {
     data: null,
   });
   useEffect(() => {
-    function sleep(ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    }
+    // function sleep(ms) {
+    //   return new Promise((resolve) => setTimeout(resolve, ms));
+    // }
     async function getJobs() {
       dispatch({ type: "FETCH_INIT" });
-      await sleep(600);
-      dispatch({ type: "FETCH_SUCCESS", payload: data });
-    }
-    if (didMountRef.current) {
-      getJobs();
-    }
-  }, [filter]);
-  return [state, setFilter];
-}
-
-function useGetAPI(initialURL) {
-  const [url, setURL] = useState(initialURL);
-
-  const [state, dispatch] = useReducer(jobAPIReducer, {
-    isLoading: false,
-    isError: false,
-    data: action.payload,
-  });
-  useEffect(() => {
-    const getJobList = async () => {
-      dispatch({ type: "FETCH_INIT" });
-      const url = "http://localhost/ApiController/jobs";
+      // const headers = {
+      //   "Content-Type": "application/json",
+      // };
+      const url = "https://localhost:3102/api/heytour";
+      // await sleep(600);
+      // dispatch({ type: "FETCH_SUCCESS", payload: data });
       try {
         const response = await axios.get(url);
         console.log(response);
@@ -77,9 +61,22 @@ function useGetAPI(initialURL) {
         console.log(error);
         dispatch({ type: "FETCH_FAILURE" });
       }
-    };
-    getJobList();
-  }, [url]);
-
-  return [state, setURL];
+    }
+    if (didMountRef.current) {
+      getJobs();
+    }
+  }, [filter]);
+  return [state, setFilter];
 }
+
+// async function onGet() {
+//   const url = "http://localhost/api/jobs?postedOn=2020-02-11T04:48:37";
+//   const res = axios
+//     .get(url)
+//     .then(function (res) {
+//       console.log(res);
+//     })
+//     .catch(function (error) {
+//       console.log(error);
+//     });
+// }
