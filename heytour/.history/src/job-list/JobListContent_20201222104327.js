@@ -46,20 +46,12 @@ export default function JobListContent(props) {
             <Card.Description>{props.job.jobDesc}</Card.Description>
           </Card.Content>
 
-          <Card.Content>
-            <Button
-              onClick={() => props.deleteJob}
-              icon="minus"
-              floated="right"
-              content="Delete"
-              color="black"
-            />
-            <Button icon="plus" floated="right" content="Edit" color="green" />
+          <Card.Content textAlign="left">
             <Button icon="plus" floated="right" content="Apply" color="green" />
             <Button
               icon="plus"
               floated="right"
-              content="More Details"
+              content="Delete"
               color="green"
             />
             <Button icon="star" floated="right" content="Save" color="red" />

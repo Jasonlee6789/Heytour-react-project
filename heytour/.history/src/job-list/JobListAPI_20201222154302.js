@@ -67,12 +67,10 @@ export function useJobList(initialFilter) {
       getJobs();
     }
 
-    function onDeleteJob(id) {
+    function onDeleteJob() {
       const confirmed = window.confirm(
-        `Are U sure to delete this ID num. job?`
+        `Are U sure to delete this ID num.${key} job?`
       );
-      if (confirmed) {
-      }
     }
   }, [filter]);
 

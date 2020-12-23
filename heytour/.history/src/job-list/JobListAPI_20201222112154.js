@@ -66,15 +66,19 @@ export function useJobList(initialFilter) {
     if (didMountRef.current) {
       getJobs();
     }
-
-    function onDeleteJob(id) {
-      const confirmed = window.confirm(
-        `Are U sure to delete this ID num. job?`
-      );
-      if (confirmed) {
-      }
-    }
   }, [filter]);
+
+  async function onDeleteJob() {
+    const url = "http://localhost:44351/api/jobs/DeleteJob";
+    const res = axios
+      .get(url)
+      .then(function (res) {
+        console.log(res);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   return [state, setFilter];
 }

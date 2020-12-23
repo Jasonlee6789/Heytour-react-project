@@ -54,14 +54,7 @@ export default function JobListContent(props) {
               content="Delete"
               color="black"
             />
-            <Button icon="plus" floated="right" content="Edit" color="green" />
             <Button icon="plus" floated="right" content="Apply" color="green" />
-            <Button
-              icon="plus"
-              floated="right"
-              content="More Details"
-              color="green"
-            />
             <Button icon="star" floated="right" content="Save" color="red" />
           </Card.Content>
         </Card>

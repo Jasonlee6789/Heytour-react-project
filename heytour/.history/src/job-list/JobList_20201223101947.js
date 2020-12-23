@@ -15,7 +15,7 @@ export default function JobList() {
           action={{ color: "blue", content: "Search" }}
           icon="search"
           iconPosition="left"
-          placeholder="Title #"
+          placeholder="Order #"
         />
 
         <Divider horizontal>Or</Divider>

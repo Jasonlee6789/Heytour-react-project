@@ -66,14 +66,6 @@ export function useJobList(initialFilter) {
     if (didMountRef.current) {
       getJobs();
     }
-
-    function onDeleteJob(id) {
-      const confirmed = window.confirm(
-        `Are U sure to delete this ID num. job?`
-      );
-      if (confirmed) {
-      }
-    }
   }, [filter]);
 
   return [state, setFilter];

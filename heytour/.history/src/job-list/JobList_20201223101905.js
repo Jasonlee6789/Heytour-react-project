@@ -15,14 +15,14 @@ export default function JobList() {
           action={{ color: "blue", content: "Search" }}
           icon="search"
           iconPosition="left"
-          placeholder="Title #"
+          placeholder="Order #"
         />
 
         <Divider horizontal>Or</Divider>
 
         <Button
           color="teal"
-          content="Post New Job"
+          content="Create New Order"
           icon="add"
           labelPosition="left"
         />
