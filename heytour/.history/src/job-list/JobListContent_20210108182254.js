@@ -7,13 +7,13 @@ import JobDetail from "./JobDetail";
 import axios from "axios";
 
 export default function JobListContent(props) {
-  // function Jump() {
-  //   return (
-  //     <Router>
-  //       <Route path="/job/:id" component={JobDetail} />
-  //     </Router>
-  //   );
-  // }
+  function Jump() {
+    return (
+      <Router>
+        <Route path="/job/:id" component={JobDetail} />
+      </Router>
+    );
+  }
   // const data = data.map((props.job) => {
   return (
     <Grid.Row>
@@ -59,50 +59,42 @@ export default function JobListContent(props) {
           </Card.Content>
 
           <Card.Content>
-            <Router>
-              <Button
-                onClick={(e) => {
-                  props.deleteJob(props.job.id);
-                  console.log("点击了删除");
-                  const url =
-                    "https://localhost:44351/api/jobs/" + props.job.id;
-                  axios.delete(url);
-                }}
-                icon="minus"
-                floated="right"
-                content="Delete"
-                color="black"
-              />
-              <Button
-                //onClick={() => props.putJob(props.job.id)}
-                icon="edit"
-                floated="right"
-                content="Edit"
-                color="green"
-                onClick={() => {
-                  console.log("点击了更改工作");
-                }}
-              />
-              <Button
-                icon="plus"
-                floated="right"
-                content="Apply"
-                color="green"
-              />
-              {/* <Link to={"/job/" + props.job.id}> */}
-              <Button
-                icon="plus"
-                floated="right"
-                content="More Details"
-                color="green"
-                onClick={() => {
-                  console.log("点击了Detail");
-                  <Route path="/job/:${props.job.id} " component={JobDetail} />;
-                }}
-              />
-              {/* </Link> */}
-              <Button icon="star" floated="right" content="Save" color="red" />
-            </Router>
+            <Button
+              onClick={(e) => {
+                // props.deleteJob(props.job.id);
+                console.log("点击了删除");
+                const url = "https://localhost:44351/api/jobs/" + props.job.id;
+                axios.delete(url);
+              }}
+              icon="minus"
+              floated="right"
+              content="Delete"
+              color="black"
+            />
+            <Button
+              //onClick={() => props.putJob(props.job.id)}
+              icon="edit"
+              floated="right"
+              content="Edit"
+              color="green"
+              onClick={() => {
+                console.log("点击了更改工作");
+              }}
+            />
+            <Button icon="plus" floated="right" content="Apply" color="green" />
+            {/* <Link to={"/job/" + props.job.id}> */}
+            <Button
+              icon="plus"
+              floated="right"
+              content="More Details"
+              color="green"
+              onClick={() => {
+                console.log("点击了Detail");
+                Jump();
+              }}
+            />
+            {/* </Link> */}
+            <Button icon="star" floated="right" content="Save" color="red" />
           </Card.Content>
         </Card>
       </Grid.Column>

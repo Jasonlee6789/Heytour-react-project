@@ -1,21 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Grid, Button, Divider, Segment } from "semantic-ui-react";
-import { useJobDelete, useJobList } from "./JobListAPI";
+import { useJobList } from "./JobListAPI";
 import JobListContent from "./JobListContent";
 import SelectForm from "../common/SelectForm";
 
 export default function JobList() {
   const [jobList, setJobListFilterer] = useJobList(null);
-  const [jobDeleteResponse, setJobId] = useJobDelete();
-  const [jobs, setJobs] = useState(null);
   useEffect(() => {
     console.log(jobList);
   }, [jobList]);
-
-  function handleDelete(id) {
-    setJobId(id);
-  }
-
   return (
     <div>
       <Segment basic textAlign="center">
@@ -42,7 +35,7 @@ export default function JobList() {
                 key={job.id}
                 isLoading={jobList.isLoading}
                 job={job}
-                deleteJob={handleDelete}
+                // deleteJob={jobList.onDeleteJob}
                 // putJob={jobList.onPutjob}
               />
             );

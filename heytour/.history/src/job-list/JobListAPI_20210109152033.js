@@ -80,7 +80,7 @@ export function useJobList(initialFilter) {
 export function useJobDelete() {
   const didMountRef = useRef(false);
 
-  const url = "https://localhost:44351/api/jobs/";
+  const url = "https://localhost:44351/api/jobs";
 
   const [id, setId] = useState(null);
 
@@ -96,20 +96,10 @@ export function useJobDelete() {
 
       try {
         const response = await axios.delete(url + id);
-        console.log("call了删除后的：" + response);
-        dispatch({ type: "FETCH_SUCCESS", payload: id });
-      } catch (error) {
-        console.log(error);
-        dispatch({ type: "FETCH_FAILURE" });
+        console.log("call了删除后" + response);
       }
     };
-
-    if (didMountRef.current && id) {
-      deleteJob();
-    } else {
-      didMountRef.current = true;
-    }
-  }, [id]);
+  });
 
   return [state, setId];
 }

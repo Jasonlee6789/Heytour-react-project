@@ -62,7 +62,7 @@ export default function JobListContent(props) {
             <Router>
               <Button
                 onClick={(e) => {
-                  props.deleteJob(props.job.id);
+                  // props.deleteJob(props.job.id);
                   console.log("点击了删除");
                   const url =
                     "https://localhost:44351/api/jobs/" + props.job.id;

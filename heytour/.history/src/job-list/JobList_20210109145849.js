@@ -7,7 +7,7 @@ import SelectForm from "../common/SelectForm";
 export default function JobList() {
   const [jobList, setJobListFilterer] = useJobList(null);
   const [jobDeleteResponse, setJobId] = useJobDelete();
-  const [jobs, setJobs] = useState(null);
+
   useEffect(() => {
     console.log(jobList);
   }, [jobList]);

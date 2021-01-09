@@ -80,7 +80,7 @@ export function useJobList(initialFilter) {
 export function useJobDelete() {
   const didMountRef = useRef(false);
 
-  const url = "https://localhost:44351/api/jobs/";
+  const url = "https://localhost:44351/api/jobs";
 
   const [id, setId] = useState(null);
 

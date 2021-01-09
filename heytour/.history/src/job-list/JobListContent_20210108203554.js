@@ -7,13 +7,13 @@ import JobDetail from "./JobDetail";
 import axios from "axios";
 
 export default function JobListContent(props) {
-  // function Jump() {
-  //   return (
-  //     <Router>
-  //       <Route path="/job/:id" component={JobDetail} />
-  //     </Router>
-  //   );
-  // }
+  function Jump() {
+    return (
+      <Router>
+        <Route path="/job/:id" component={JobDetail} />
+      </Router>
+    );
+  }
   // const data = data.map((props.job) => {
   return (
     <Grid.Row>
@@ -62,7 +62,7 @@ export default function JobListContent(props) {
             <Router>
               <Button
                 onClick={(e) => {
-                  props.deleteJob(props.job.id);
+                  // props.deleteJob(props.job.id);
                   console.log("点击了删除");
                   const url =
                     "https://localhost:44351/api/jobs/" + props.job.id;
@@ -97,7 +97,7 @@ export default function JobListContent(props) {
                 color="green"
                 onClick={() => {
                   console.log("点击了Detail");
-                  <Route path="/job/:${props.job.id} " component={JobDetail} />;
+                  <Route path="/job/:id" component={JobDetail} />;
                 }}
               />
               {/* </Link> */}
