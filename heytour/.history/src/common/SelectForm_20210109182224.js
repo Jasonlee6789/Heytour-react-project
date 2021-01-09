@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, Segment } from "semantic-ui-react";
+import { Input } from "semantic-ui-react";
 // import debounce from "lodash.debounce";
 
 const SelectForm = () => {
@@ -18,15 +18,13 @@ const SelectForm = () => {
   // });
 
   return (
-    <Segment basic textAlign="center">
-      <Input
-        action={{ color: "blue", content: "Search" }}
-        icon="search"
-        iconPosition="left"
-        placeholder="Enter Industry to search "
-        // onChange={this.handleChange}
-      />
-    </Segment>
+    <Input
+      action={{ color: "blue", content: "Search" }}
+      icon="search"
+      iconPosition="left"
+      placeholder="Enter Industry to search #"
+      // onChange={this.handleChange}
+    />
   );
 };
 

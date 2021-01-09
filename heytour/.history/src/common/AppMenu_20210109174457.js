@@ -51,11 +51,6 @@ export default function AppMenu() {
     <div>
       <Menu size="large">
         <Menu.Item name="Heytour-Jing" />
-        {state.authenticated && (
-          <Menu.Item>
-            <NavAdmin />
-          </Menu.Item>
-        )}
         <Menu.Menu position="right">
           {/* <Menu.Item>
             {isUserLogin ? (

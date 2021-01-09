@@ -3,6 +3,8 @@ import { Menu, Button } from "semantic-ui-react";
 import Login from "../authentication/Login";
 import appMenuReducer from "./AppMenuReducer";
 import NavAdmin from "./NavAdmin";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import JobDetail from "../job-list/JobDetail";
 
 export default function AppMenu() {
   // const [loginOpen, setLoginOpen] = useState(false);

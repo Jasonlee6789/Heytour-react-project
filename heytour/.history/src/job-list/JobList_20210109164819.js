@@ -20,6 +20,7 @@ export default function JobList() {
     if (jobDeleteResponse.data && !jobDeleteResponse.isError) {
       setJobs(jobs.filter((job) => job.id !== jobDeleteResponse.data));
     }
+    console.log(jobs);
   }, [jobListResponse, jobDeleteResponse]);
 
   function handleDelete(id) {
@@ -30,6 +31,18 @@ export default function JobList() {
     <div>
       <Segment basic textAlign="center">
         <SelectForm />
+
+        <Divider horizontal>Or</Divider>
+
+        <Button
+          color="teal"
+          content="Post New Job"
+          icon="add"
+          labelPosition="left"
+          onClick={() => {
+            console.log("点击了添加新工作");
+          }}
+        />
       </Segment>
 
       <Grid>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, Segment } from "semantic-ui-react";
+import { Input } from "semantic-ui-react";
 // import debounce from "lodash.debounce";
 
 const SelectForm = () => {

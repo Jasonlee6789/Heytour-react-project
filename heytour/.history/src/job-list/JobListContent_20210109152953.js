@@ -4,6 +4,7 @@ import { Button, Image, Card, Grid, Icon } from "semantic-ui-react";
 import moment from "moment";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import JobDetail from "./JobDetail";
+import axios from "axios";
 
 export default function JobListContent(props) {
   // function Jump() {
@@ -70,23 +71,37 @@ export default function JobListContent(props) {
                 icon="minus"
                 floated="right"
                 content="Delete"
-                color="teal"
+                color="black"
               />
-
-              <Button icon="plus" floated="right" content="Apply" primary />
+              <Button
+                //onClick={() => props.putJob(props.job.id)}
+                icon="edit"
+                floated="right"
+                content="Edit"
+                color="green"
+                onClick={() => {
+                  console.log("点击了更改工作");
+                }}
+              />
+              <Button
+                icon="plus"
+                floated="right"
+                content="Apply"
+                color="green"
+              />
               {/* <Link to={"/job/" + props.job.id}> */}
               <Button
                 icon="plus"
                 floated="right"
                 content="More Details"
-                primary
+                color="green"
                 onClick={() => {
                   console.log("点击了Detail");
                   <Route path="/job/:${props.job.id} " component={JobDetail} />;
                 }}
               />
               {/* </Link> */}
-              <Button icon="star" floated="right" content="Save" primary />
+              <Button icon="star" floated="right" content="Save" color="red" />
             </Router>
           </Card.Content>
         </Card>

@@ -30,6 +30,7 @@ export default function JobList() {
     <div>
       <Segment basic textAlign="center">
         <SelectForm />
+        <Divider horizontal>Or</Divider>
       </Segment>
 
       <Grid>

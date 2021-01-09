@@ -73,7 +73,12 @@ export default function JobListContent(props) {
                 color="teal"
               />
 
-              <Button icon="plus" floated="right" content="Apply" primary />
+              <Button
+                icon="plus"
+                floated="right"
+                content="Apply"
+                color="green"
+              />
               {/* <Link to={"/job/" + props.job.id}> */}
               <Button
                 icon="plus"
@@ -86,7 +91,7 @@ export default function JobListContent(props) {
                 }}
               />
               {/* </Link> */}
-              <Button icon="star" floated="right" content="Save" primary />
+              <Button icon="star" floated="right" content="Save" color="red" />
             </Router>
           </Card.Content>
         </Card>

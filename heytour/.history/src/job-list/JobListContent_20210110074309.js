@@ -73,20 +73,25 @@ export default function JobListContent(props) {
                 color="teal"
               />
 
-              <Button icon="plus" floated="right" content="Apply" primary />
+              <Button
+                icon="plus"
+                floated="right"
+                content="Apply"
+                color="green"
+              />
               {/* <Link to={"/job/" + props.job.id}> */}
               <Button
                 icon="plus"
                 floated="right"
                 content="More Details"
-                primary
+                color="green"
                 onClick={() => {
                   console.log("点击了Detail");
                   <Route path="/job/:${props.job.id} " component={JobDetail} />;
                 }}
               />
               {/* </Link> */}
-              <Button icon="star" floated="right" content="Save" primary />
+              <Button icon="star" floated="right" content="Save" color="red" />
             </Router>
           </Card.Content>
         </Card>
