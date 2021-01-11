@@ -23,7 +23,7 @@ function AddJob() {
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
   const [industry, setIndustry] = useState("");
-  // const [picture, setPicture] = useState("");
+  const [picture, setPicture] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
   const [jobDesc, setJobDesc] = useState("");
@@ -138,7 +138,7 @@ function AddJob() {
 
           <Form.Group widths="equal">
             <Form.Field
-              id="form-input-control-Company"
+              id="form-input-control-Location"
               control={Input}
               label="Company"
               placeholder="Company"
@@ -163,11 +163,11 @@ function AddJob() {
               width={7}
             />
             <Form.Field
-              id="form-input-control-PostedOn"
+              id="form-input-control-Location"
               control={Input}
-              label="PostedOn"
-              placeholder="PostedOn"
-              onChange={changePostedOn}
+              label="Location"
+              placeholder="Location"
+              onChange={changeLocation}
               width={9}
             />
           </Form.Group>

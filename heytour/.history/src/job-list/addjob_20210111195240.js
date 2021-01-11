@@ -23,7 +23,7 @@ function AddJob() {
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
   const [industry, setIndustry] = useState("");
-  // const [picture, setPicture] = useState("");
+  const [picture, setPicture] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
   const [jobDesc, setJobDesc] = useState("");
@@ -39,55 +39,15 @@ function AddJob() {
     } else if (!setTitle) {
       Message.error("工作Title不能为空");
       return false;
-    } else if (!setIndustry) {
-      Message.error("工作Industry不能为空");
-      return false;
-    } else if (!setCompany) {
-      Message.error("工作Company不能为空");
-      return false;
     } else if (!setLocation) {
       Message.error("工作Location不能为空");
-      return false;
-    } else if (!setEmail) {
-      Message.error("Email不能为空");
-      return false;
-    } else if (!setPostedOn) {
-      Message.error("PostedOn不能为空");
       return false;
     }
     <Message success header="Form Completed" content="You're ready to Post" />;
   };
 
-  const changeId = (e) => {
-    setId(e.target.value);
-  };
-
-  const changeTitle = (e) => {
-    setTitle(e.target.value);
-  };
-
-  const changeIndustry = (e) => {
-    setIndustry(e.target.value);
-  };
-
-  const changeCompany = (e) => {
-    setCompany(e.target.value);
-  };
-
-  const changeLocation = (e) => {
-    setCompany(e.target.value);
-  };
-
   const changeJobDesc = (e) => {
     setJobDesc(e.target.value);
-  };
-
-  const changeEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const changePostedOn = (e) => {
-    setPostedOn(e.target.value);
   };
 
   return (
@@ -98,30 +58,21 @@ function AddJob() {
       open={open}
       trigger={<Button primary>Post</Button>}
     >
-      <Modal.Header>Post新工作</Modal.Header>
+      <Modal.Header>Post框</Modal.Header>
       <Modal.Content>
         <Form>
           <Form.Group widths="equal">
             <Form.Field
-              id="form-input-control-ID"
-              control={Input}
-              label="ID"
-              placeholder="ID"
-              onChange={changeId}
-            />
-            <Form.Field
-              id="form-input-control-Title"
+              id="form-input-control-first-name"
               control={Input}
               label="Title"
               placeholder="Title"
-              onChange={changeTitle}
             />
             <Form.Field
-              id="form-input-control-Industry"
+              id="form-input-control-last-name"
               control={Input}
               label="Industry"
               placeholder="Industry"
-              onChange={changeIndustry}
             />
             <Form.Field
               control={Select}
@@ -130,48 +81,11 @@ function AddJob() {
                 children: "IsActive",
                 htmlFor: "form-select-control-gender",
               }}
-              placeholder="IsActive"
+              placeholder="Gender"
               search
               searchInput={{ id: "form-select-control-gender" }}
             />
           </Form.Group>
-
-          <Form.Group widths="equal">
-            <Form.Field
-              id="form-input-control-Company"
-              control={Input}
-              label="Company"
-              placeholder="Company"
-              onChange={changeCompany}
-            />
-            <Form.Field
-              id="form-input-control-Location"
-              control={Input}
-              label="Location"
-              placeholder="Location"
-              onChange={changeLocation}
-            />
-          </Form.Group>
-
-          <Form.Group>
-            <Form.Field
-              id="form-input-control-Email"
-              control={Input}
-              label="Email"
-              placeholder="Email"
-              onChange={changeEmail}
-              width={7}
-            />
-            <Form.Field
-              id="form-input-control-PostedOn"
-              control={Input}
-              label="PostedOn"
-              placeholder="PostedOn"
-              onChange={changePostedOn}
-              width={9}
-            />
-          </Form.Group>
-
           <Form.Field
             id="form-textarea-control-opinion"
             control={TextArea}
@@ -181,6 +95,7 @@ function AddJob() {
           />
 
           <Button
+            label="检验完成提交发布"
             type="submit"
             onClick={() => {
               saveJob();
@@ -189,6 +104,7 @@ function AddJob() {
           >
             Post
           </Button>
+          <Button />
         </Form>
       </Modal.Content>
     </Modal>

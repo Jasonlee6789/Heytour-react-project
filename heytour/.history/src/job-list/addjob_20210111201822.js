@@ -23,7 +23,7 @@ function AddJob() {
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
   const [industry, setIndustry] = useState("");
-  // const [picture, setPicture] = useState("");
+  const [picture, setPicture] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
   const [jobDesc, setJobDesc] = useState("");
@@ -48,12 +48,6 @@ function AddJob() {
     } else if (!setLocation) {
       Message.error("工作Location不能为空");
       return false;
-    } else if (!setEmail) {
-      Message.error("Email不能为空");
-      return false;
-    } else if (!setPostedOn) {
-      Message.error("PostedOn不能为空");
-      return false;
     }
     <Message success header="Form Completed" content="You're ready to Post" />;
   };
@@ -74,20 +68,8 @@ function AddJob() {
     setCompany(e.target.value);
   };
 
-  const changeLocation = (e) => {
-    setCompany(e.target.value);
-  };
-
   const changeJobDesc = (e) => {
     setJobDesc(e.target.value);
-  };
-
-  const changeEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const changePostedOn = (e) => {
-    setPostedOn(e.target.value);
   };
 
   return (
@@ -138,37 +120,16 @@ function AddJob() {
 
           <Form.Group widths="equal">
             <Form.Field
-              id="form-input-control-Company"
+              id="form-input-control-Location"
               control={Input}
               label="Company"
               placeholder="Company"
-              onChange={changeCompany}
             />
             <Form.Field
               id="form-input-control-Location"
               control={Input}
               label="Location"
               placeholder="Location"
-              onChange={changeLocation}
-            />
-          </Form.Group>
-
-          <Form.Group>
-            <Form.Field
-              id="form-input-control-Email"
-              control={Input}
-              label="Email"
-              placeholder="Email"
-              onChange={changeEmail}
-              width={7}
-            />
-            <Form.Field
-              id="form-input-control-PostedOn"
-              control={Input}
-              label="PostedOn"
-              placeholder="PostedOn"
-              onChange={changePostedOn}
-              width={9}
             />
           </Form.Group>
 

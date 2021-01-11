@@ -23,7 +23,7 @@ function AddJob() {
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
   const [industry, setIndustry] = useState("");
-  // const [picture, setPicture] = useState("");
+  const [picture, setPicture] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
   const [jobDesc, setJobDesc] = useState("");
