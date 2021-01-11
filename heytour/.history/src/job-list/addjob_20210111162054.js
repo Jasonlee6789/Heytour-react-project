@@ -7,48 +7,15 @@ import {
   TextArea,
   Button,
   Select,
-  Message,
 } from "semantic-ui-react";
 
 function AddJob() {
   const [open, setOpen] = React.useState(false);
 
   const genderOptions = [
-    { key: "t", text: "True", value: "male" },
-    { key: "f", text: "False", value: "female" },
+    { key: "m", text: "Male", value: "male" },
+    { key: "f", text: "Female", value: "female" },
   ];
-
-  const [id, setId] = useState(0);
-  const [isActive, setIsActive] = useState(true);
-  const [title, setTitle] = useState("");
-  const [location, setLocation] = useState("");
-  const [industry, setIndustry] = useState("");
-  const [picture, setPicture] = useState("");
-  const [company, setCompany] = useState("");
-  const [email, setEmail] = useState("");
-  const [jobDesc, setJobDesc] = useState("");
-  const [postedOn, setPostedOn] = useState("");
-
-  const changeJobDesc = (e) => {
-    setJobDesc(e.target.value);
-  };
-
-  const saveJob = () => {
-    if (!setId) {
-      Message.error("必须输入ID");
-      return false;
-    } else if (!setIsActive) {
-      Message.error("必须选择IsActive");
-      return false;
-    } else if (!setTitle) {
-      Message.error("工作Title不能为空");
-      return false;
-    } else if (!setLocation) {
-      Message.error("工作Location不能为空");
-      return false;
-    }
-    Message.success("格式检验通过");
-  };
 
   return (
     <Modal
@@ -65,14 +32,14 @@ function AddJob() {
             <Form.Field
               id="form-input-control-first-name"
               control={Input}
-              label="Title"
-              placeholder="Title"
+              label="First name"
+              placeholder="First name"
             />
             <Form.Field
               id="form-input-control-last-name"
               control={Input}
-              label="Industry"
-              placeholder="Industry"
+              label="Last name"
+              placeholder="Last name"
             />
             <Form.Field
               control={Select}
@@ -89,15 +56,24 @@ function AddJob() {
           <Form.Field
             id="form-textarea-control-opinion"
             control={TextArea}
-            label="JobDesc"
-            placeholder="工作描述"
+            label="Opinion"
+            placeholder="Opinion"
           />
-
+          <Form.Field
+            id="form-input-control-error-email"
+            control={Input}
+            label="Email"
+            placeholder="joe@schmoe.com"
+            error={{
+              content: "Please enter a valid email address",
+              pointing: "below",
+            }}
+          />
           <Form.Field
             id="form-button-control-public"
             control={Button}
             content="Confirm"
-            label="检验完成提交发布"
+            label="Label with htmlFor"
             type="submit"
           />
         </Form>

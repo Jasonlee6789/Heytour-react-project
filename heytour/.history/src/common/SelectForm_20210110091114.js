@@ -18,7 +18,7 @@ const SelectForm = () => {
   // });
 
   return (
-    <Segment basic textAlign="right">
+    <Segment basictextAlign="right">
       <Input
         action={{ color: "blue", content: "Search" }}
         icon="search"

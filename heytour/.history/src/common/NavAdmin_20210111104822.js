@@ -12,8 +12,7 @@ export default function NavAdmin() {
   return (
     <div>
       <Router>
-        <AddJob />
-        {/* <Link to="/addjob">
+        <Link to="/addjob">
           <Button
             primary
             content="Post "
@@ -24,19 +23,17 @@ export default function NavAdmin() {
               console.log("点击了添加新工作");
             }}
           />
-        </Link> */}
-        <Link to="/editjob/">
-          <Button
-            //onClick={() => props.putJob(props.job.id)}
-            //icon="edit"
-            //floated="left"
-            content="Edit"
-            primary
-            onClick={() => {
-              console.log("点击了更改工作");
-            }}
-          />
         </Link>
+        <Button
+          //onClick={() => props.putJob(props.job.id)}
+          icon="edit"
+          //floated="left"
+          content="Edit"
+          primary
+          onClick={() => {
+            console.log("点击了更改工作");
+          }}
+        />
       </Router>
     </div>
   );

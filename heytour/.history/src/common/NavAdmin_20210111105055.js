@@ -25,18 +25,16 @@ export default function NavAdmin() {
             }}
           />
         </Link> */}
-        <Link to="/editjob/">
-          <Button
-            //onClick={() => props.putJob(props.job.id)}
-            //icon="edit"
-            //floated="left"
-            content="Edit"
-            primary
-            onClick={() => {
-              console.log("点击了更改工作");
-            }}
-          />
-        </Link>
+        <Button
+          //onClick={() => props.putJob(props.job.id)}
+          icon="edit"
+          //floated="left"
+          content="Edit"
+          primary
+          onClick={() => {
+            console.log("点击了更改工作");
+          }}
+        />
       </Router>
     </div>
   );

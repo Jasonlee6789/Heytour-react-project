@@ -7,7 +7,6 @@ import {
   TextArea,
   Button,
   Select,
-  Message,
 } from "semantic-ui-react";
 
 function AddJob() {
@@ -17,38 +16,6 @@ function AddJob() {
     { key: "t", text: "True", value: "male" },
     { key: "f", text: "False", value: "female" },
   ];
-
-  const [id, setId] = useState(0);
-  const [isActive, setIsActive] = useState(true);
-  const [title, setTitle] = useState("");
-  const [location, setLocation] = useState("");
-  const [industry, setIndustry] = useState("");
-  const [picture, setPicture] = useState("");
-  const [company, setCompany] = useState("");
-  const [email, setEmail] = useState("");
-  const [jobDesc, setJobDesc] = useState("");
-  const [postedOn, setPostedOn] = useState("");
-
-  const changeJobDesc = (e) => {
-    setJobDesc(e.target.value);
-  };
-
-  const saveJob = () => {
-    if (!setId) {
-      Message.error("必须输入ID");
-      return false;
-    } else if (!setIsActive) {
-      Message.error("必须选择IsActive");
-      return false;
-    } else if (!setTitle) {
-      Message.error("工作Title不能为空");
-      return false;
-    } else if (!setLocation) {
-      Message.error("工作Location不能为空");
-      return false;
-    }
-    Message.success("格式检验通过");
-  };
 
   return (
     <Modal
@@ -97,7 +64,7 @@ function AddJob() {
             id="form-button-control-public"
             control={Button}
             content="Confirm"
-            label="检验完成提交发布"
+            label="Label with htmlFor"
             type="submit"
           />
         </Form>

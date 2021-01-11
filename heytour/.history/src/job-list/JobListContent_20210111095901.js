@@ -76,7 +76,7 @@ export default function JobListContent(props) {
               <Button icon="plus" floated="right" content="Apply" primary />
 
               <Button
-                icon="edit"
+                icon="plus"
                 floated="right"
                 content="More Details"
                 primary

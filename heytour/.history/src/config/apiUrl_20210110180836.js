@@ -1,4 +1,4 @@
-let ipUrl = "http://127.0.0.1:44351/api/jobs/";
+let ipUrl = "http://127.0.0.1:44351/api/jobs";
 
 let servicePath = {
   getJobsList: ipUrl + "getJobsList", //  首页jobs列表接口

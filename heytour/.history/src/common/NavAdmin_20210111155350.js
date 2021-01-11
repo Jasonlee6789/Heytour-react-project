@@ -25,7 +25,7 @@ export default function NavAdmin() {
             }}
           />
         </Link> */}
-        <Link to="/editjob/">
+        <Link to="/addjob">
           <Button
             //onClick={() => props.putJob(props.job.id)}
             //icon="edit"

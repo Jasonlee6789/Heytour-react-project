@@ -18,13 +18,14 @@ const SelectForm = () => {
   // });
 
   return (
-    <Segment basic textAlign="right">
+    <Segment large textAlign="center">
       <Input
         action={{ color: "blue", content: "Search" }}
         icon="search"
         iconPosition="left"
         placeholder="Enter Industry to search "
         // onChange={this.handleChange}
+        size="large"
       />
     </Segment>
   );

@@ -7,7 +7,6 @@ import {
   TextArea,
   Button,
   Select,
-  Message,
 } from "semantic-ui-react";
 
 function AddJob() {
@@ -49,7 +48,6 @@ function AddJob() {
     }
     Message.success("格式检验通过");
   };
-
   return (
     <Modal
       closeIcon
