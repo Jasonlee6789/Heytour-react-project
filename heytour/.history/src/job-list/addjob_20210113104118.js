@@ -114,26 +114,28 @@ function AddJob() {
         withCredentials: true,
       }).then((res) => {
         if (res.code == 200) {
-          <Message success header="Form Completed" content="发布成功" />;
+          alert("发布成功");
         }
-        console.log(res.data);
+        console.log(res.data.data);
       });
     }
 
-    if (id == 1) {
+    if (id == 0) {
       axios({
-        method: "put",
+        method: "post",
         url: "https://localhost:44351/api/jobs/",
         data: dataProps,
         // 表示跨域请求时是否需要使用凭证.
         withCredentials: true,
       }).then((res) => {
         if (res.code == 200) {
-          alert("更改成功");
+          alert("发布成功");
         }
-        console.log(res.data);
+        console.log(res.data.data);
       });
     }
+
+    <Message success header="Form Completed" content="You're ready to Post" />;
   };
 
   return (

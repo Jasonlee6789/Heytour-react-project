@@ -3,7 +3,7 @@ import { Grid, Breadcrumb } from "semantic-ui-react";
 import { useJobDelete, useJobList } from "./JobListAPI";
 import JobListContent from "./JobListContent";
 
-export default function JobList() {
+function JobAdmin() {
   const [jobListResponse, setJobListFilter] = useJobList(null);
   const [jobDeleteResponse, setJobId] = useJobDelete();
 
@@ -27,12 +27,6 @@ export default function JobList() {
 
   return (
     <div>
-      <Breadcrumb>
-        <Breadcrumb.Section link>Home</Breadcrumb.Section>
-        <Breadcrumb.Divider />
-        <Breadcrumb.Section active>Jobs</Breadcrumb.Section>
-      </Breadcrumb>
-
       <Grid>
         {/* {jobListResponse.data &&
           jobListResponse.data.map((job, index) => { */}
@@ -52,3 +46,5 @@ export default function JobList() {
     </div>
   );
 }
+
+export default JobAdmin;

@@ -30,9 +30,8 @@ export default function JobList() {
       <Breadcrumb>
         <Breadcrumb.Section link>Home</Breadcrumb.Section>
         <Breadcrumb.Divider />
-        <Breadcrumb.Section active>Jobs</Breadcrumb.Section>
+        <Breadcrumb.Section active>Customer</BreadBreadcrumb.Section>
       </Breadcrumb>
-
       <Grid>
         {/* {jobListResponse.data &&
           jobListResponse.data.map((job, index) => { */}

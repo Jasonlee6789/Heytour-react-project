@@ -32,7 +32,6 @@ export default function JobList() {
         <Breadcrumb.Divider />
         <Breadcrumb.Section active>Jobs</Breadcrumb.Section>
       </Breadcrumb>
-
       <Grid>
         {/* {jobListResponse.data &&
           jobListResponse.data.map((job, index) => { */}

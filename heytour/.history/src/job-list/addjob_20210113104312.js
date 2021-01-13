@@ -116,7 +116,7 @@ function AddJob() {
         if (res.code == 200) {
           <Message success header="Form Completed" content="发布成功" />;
         }
-        console.log(res.data);
+        console.log(res.data.data);
       });
     }
 
@@ -131,7 +131,7 @@ function AddJob() {
         if (res.code == 200) {
           alert("更改成功");
         }
-        console.log(res.data);
+        console.log(res.data.data);
       });
     }
   };
