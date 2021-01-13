@@ -3,7 +3,7 @@ import { Menu, Button } from "semantic-ui-react";
 import Login from "../authentication/Login";
 import appMenuReducer from "./AppMenuReducer";
 import NavAdmin from "./NavAdmin";
-import SelectForm from "./SelectForm";
+import SelectForm from "../common/SelectForm";
 export default function AppMenu() {
   // const [loginOpen, setLoginOpen] = useState(false);
 

@@ -56,7 +56,7 @@ export default function AppMenu() {
             <NavAdmin />
           </Menu.Item>
         )}
-        <SelectForm />
+        <SelectForm position="right" />
         <Menu.Menu position="right">
           {/* <Menu.Item>
             {isUserLogin ? (

@@ -5,11 +5,9 @@ import AddJob from "../job-list/AddJob";
 import JobAdmin from "../job-list/JobAdmin";
 
 export default function NavAdmin() {
-  function toJobAdmin() {
+  function toJob() {
     <Router>
-      <div>
-        <Route path="/admin/" exact component={JobAdmin} />;
-      </div>
+      <Route path="/editjob/" exact component={JobAdmin} />;
     </Router>;
   }
   return (
@@ -37,6 +35,7 @@ export default function NavAdmin() {
           primary
           onClick={() => {
             console.log("点击了更改工作");
+            <Link to="/editjob/"></Link>;
           }}
         />
       </Router>

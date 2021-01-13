@@ -3,7 +3,7 @@ import { Grid } from "semantic-ui-react";
 import { useJobDelete, useJobList } from "./JobListAPI";
 import JobListContent from "./JobListContent";
 
-export default function JobList() {
+function JobAdmin() {
   const [jobListResponse, setJobListFilter] = useJobList(null);
   const [jobDeleteResponse, setJobId] = useJobDelete();
 
@@ -46,3 +46,5 @@ export default function JobList() {
     </div>
   );
 }
+
+export default JobAdmin;

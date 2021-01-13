@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../static/css/AddJob.css";
 import {
   Modal,
@@ -10,8 +10,6 @@ import {
   Message,
 } from "semantic-ui-react";
 import axios from "axios";
-import servicePath from "../config/apiUrl";
-
 function AddJob() {
   const [open, setOpen] = React.useState(false);
 
@@ -30,10 +28,6 @@ function AddJob() {
   const [email, setEmail] = useState("");
   const [jobDesc, setJobDesc] = useState("");
   const [postedOn, setPostedOn] = useState("");
-
-  useEffect(() => {
-    console.log("执行了添加工作");
-  }, []);
 
   const changeId = (e) => {
     setId(e.target.value);
@@ -110,12 +104,8 @@ function AddJob() {
         method: "post",
         url: "https://localhost:44351/api/jobs/",
         data: dataProps,
-        withCredentials: true,
-      }).then((res) => {
-        console.log(res.data.data);
       });
     }
-
     <Message success header="Form Completed" content="You're ready to Post" />;
   };
 

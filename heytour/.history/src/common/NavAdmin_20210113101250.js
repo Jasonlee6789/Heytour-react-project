@@ -5,7 +5,7 @@ import AddJob from "../job-list/AddJob";
 import JobAdmin from "../job-list/JobAdmin";
 
 export default function NavAdmin() {
-  function toJobAdmin() {
+  function toAdmin() {
     <Router>
       <div>
         <Route path="/admin/" exact component={JobAdmin} />;

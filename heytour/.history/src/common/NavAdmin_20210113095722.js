@@ -5,12 +5,8 @@ import AddJob from "../job-list/AddJob";
 import JobAdmin from "../job-list/JobAdmin";
 
 export default function NavAdmin() {
-  function toJobAdmin() {
-    <Router>
-      <div>
-        <Route path="/admin/" exact component={JobAdmin} />;
-      </div>
-    </Router>;
+  function toJob() {
+    <Router></Router>;
   }
   return (
     <div>
@@ -28,7 +24,10 @@ export default function NavAdmin() {
             }}
           />
         </Link> */}
-
+        <div>
+          {" "}
+          <Route path="/editjob/" exact component={JobAdmin} />;
+        </div>
         <Button
           //onClick={() => props.putJob(props.job.id)}
           //icon="edit"
@@ -37,6 +36,7 @@ export default function NavAdmin() {
           primary
           onClick={() => {
             console.log("点击了更改工作");
+            <Link to="/editjob/"></Link>;
           }}
         />
       </Router>

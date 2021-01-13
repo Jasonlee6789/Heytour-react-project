@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../static/css/AddJob.css";
 import {
   Modal,
@@ -9,8 +9,6 @@ import {
   Select,
   Message,
 } from "semantic-ui-react";
-import axios from "axios";
-import servicePath from "../config/apiUrl";
 
 function AddJob() {
   const [open, setOpen] = React.useState(false);
@@ -20,7 +18,7 @@ function AddJob() {
     { key: "f", text: "False", value: "female" },
   ];
 
-  const [id, setId] = useState(0); //文章的ID，如果是0说明是新增加工作，如果不是0，说明是修改
+  const [id, setId] = useState(0);
   const [isActive, setIsActive] = useState(true);
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
@@ -30,10 +28,6 @@ function AddJob() {
   const [email, setEmail] = useState("");
   const [jobDesc, setJobDesc] = useState("");
   const [postedOn, setPostedOn] = useState("");
-
-  useEffect(() => {
-    console.log("执行了添加工作");
-  }, []);
 
   const changeId = (e) => {
     setId(e.target.value);
@@ -63,8 +57,8 @@ function AddJob() {
     setEmail(e.target.value);
   };
 
-  const changeIsActive = (e) => {
-    setIsActive(e.target.value);
+  const changePostedOn = (e) => {
+    setPostedOn(e.target.value);
   };
 
   const saveJob = () => {
@@ -97,24 +91,6 @@ function AddJob() {
     let dataProps = {};
     dataProps.id = id;
     dataProps.title = title;
-    dataProps.location = location;
-    dataProps.industry = industry;
-    dataProps.company = company;
-    dataProps.email = email;
-    dataProps.jobDesc = jobDesc;
-    let dateText = postedOn.replace("-", "/");
-    dataProps.addTime = new Date(dateText).getTime() / 1000;
-
-    if (id == 0) {
-      axios({
-        method: "post",
-        url: "https://localhost:44351/api/jobs/",
-        data: dataProps,
-        withCredentials: true,
-      }).then((res) => {
-        console.log(res.data.data);
-      });
-    }
 
     <Message success header="Form Completed" content="You're ready to Post" />;
   };
@@ -160,7 +136,6 @@ function AddJob() {
                 htmlFor: "form-select-control-gender",
               }}
               placeholder="IsActive"
-              onChange={changeIsActive}
               search
               searchInput={{ id: "form-select-control-gender" }}
             />
@@ -197,6 +172,7 @@ function AddJob() {
               control={Input}
               label="PostedOn"
               placeholder="PostedOn"
+              onChange={changePostedOn}
               width={9}
             />
           </Form.Group>

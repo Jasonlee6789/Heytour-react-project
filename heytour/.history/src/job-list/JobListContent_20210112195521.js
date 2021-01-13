@@ -77,12 +77,12 @@ export default function JobListContent(props) {
                 content="Edit"
                 primary
                 onClick={() => {
-                  console.log("点击了编辑");
+                  console.log("点击了Detail");
                   // <Route path="/job/:${props.job.id} " component={JobDetail} />;
                 }}
               />
-
               <Button icon="plus" floated="right" content="Apply" primary />
+
               <Button icon="star" floated="right" content="Save" primary />
             </Router>
           </Card.Content>

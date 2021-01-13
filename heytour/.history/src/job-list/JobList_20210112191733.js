@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Grid } from "semantic-ui-react";
 import { useJobDelete, useJobList } from "./JobListAPI";
 import JobListContent from "./JobListContent";
+import SelectForm from "../common/SelectForm";
 
 export default function JobList() {
   const [jobListResponse, setJobListFilter] = useJobList(null);
@@ -22,11 +23,16 @@ export default function JobList() {
   }, [jobListResponse, jobDeleteResponse]);
 
   function handleDelete(id) {
+    confirm({
+      title: "Are you sure to delete this job?",
+      content: "如果你点击OK,此项将永远被删除。",
+    });
     setJobId(id);
   }
 
   return (
     <div>
+      <SelectForm />
       <Grid>
         {/* {jobListResponse.data &&
           jobListResponse.data.map((job, index) => { */}

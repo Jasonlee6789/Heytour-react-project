@@ -2,14 +2,12 @@ import React from "react";
 import { Button } from "semantic-ui-react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AddJob from "../job-list/AddJob";
-import JobAdmin from "../job-list/JobAdmin";
+import JobDetail from "../job-list/JobDetail";
 
 export default function NavAdmin() {
-  function toJobAdmin() {
+  function toAddJob() {
     <Router>
-      <div>
-        <Route path="/admin/" exact component={JobAdmin} />;
-      </div>
+      <Route path="/editjob/" exact component={JobDetail} />;
     </Router>;
   }
   return (
@@ -28,17 +26,18 @@ export default function NavAdmin() {
             }}
           />
         </Link> */}
-
-        <Button
-          //onClick={() => props.putJob(props.job.id)}
-          //icon="edit"
-          //floated="left"
-          content="管理发布的工作"
-          primary
-          onClick={() => {
-            console.log("点击了更改工作");
-          }}
-        />
+        <Link to="/editjob/">
+          <Button
+            //onClick={() => props.putJob(props.job.id)}
+            //icon="edit"
+            //floated="left"
+            content="Edit"
+            primary
+            onClick={() => {
+              console.log("点击了更改工作");
+            }}
+          />
+        </Link>
       </Router>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../static/css/AddJob.css";
 import {
   Modal,
@@ -30,10 +30,6 @@ function AddJob() {
   const [email, setEmail] = useState("");
   const [jobDesc, setJobDesc] = useState("");
   const [postedOn, setPostedOn] = useState("");
-
-  useEffect(() => {
-    console.log("执行了添加工作");
-  }, []);
 
   const changeId = (e) => {
     setId(e.target.value);
