@@ -32,7 +32,7 @@ function AddJob() {
   const [postedOn, setPostedOn] = useState("");
 
   useEffect(() => {
-    console.log("执行了进入Admin权限的页面");
+    console.log("执行了添加工作");
   }, []);
 
   const changeId = (e) => {
@@ -109,6 +109,7 @@ function AddJob() {
       method: "post",
       url: "https://localhost:44351/api/jobs/",
       data: dataProps,
+
       // 表示跨域请求时是否需要使用凭证.
       withCredentials: false,
       headers: {

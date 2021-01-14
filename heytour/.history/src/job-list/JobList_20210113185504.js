@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Grid, Breadcrumb } from "semantic-ui-react";
 import { useJobDelete, useJobList } from "./JobListAPI";
 import JobListContent from "./JobListContent";
+import SelectForm from "../common/SelectForm";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-function JobAdmin() {
+export default function JobList() {
   const [jobListResponse, setJobListFilter] = useJobList(null);
   const [jobDeleteResponse, setJobId] = useJobDelete();
 
@@ -31,30 +32,28 @@ function JobAdmin() {
       <Breadcrumb>
         <Breadcrumb.Section link>Home</Breadcrumb.Section>
         <Breadcrumb.Divider />
-        <Breadcrumb.Section active>Admin</Breadcrumb.Section>
+        <Breadcrumb.Section active>Jobs</Breadcrumb.Section>
       </Breadcrumb>
+      <SelectForm />
       <Grid>
         {/* {jobListResponse.data &&
           jobListResponse.data.map((job, index) => { */}
         {jobs &&
           jobs.map((job, index) => {
             return (
-              <Router>
-                <Link to={"/jobs/" + job.id}>
-                  <JobListContent
-                    key={job.id}
-                    //isLoading={jobListResponse.isLoading}
-                    job={job}
-                    deleteJob={handleDelete}
-                    // putJob={onPutjob}
-                  />
-                </Link>
-              </Router>
+              <Link to={"/jobs/" + job.id}>
+                {" "}
+                <JobListContent
+                  key={job.id}
+                  //isLoading={jobListResponse.isLoading}
+                  job={job}
+                  deleteJob={handleDelete}
+                  // putJob={onPutjob}
+                />
+              </Link>
             );
           })}
       </Grid>
     </div>
   );
 }
-
-export default JobAdmin;

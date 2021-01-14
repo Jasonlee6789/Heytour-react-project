@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Input, Segment } from "semantic-ui-react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import JobList from "../job-list/JobList";
-
 const SelectForm = () => {
   // useEffect(() => {
-  //Todo:怎么定义一个方法，输入内容 摁回车 会去搜索 并显示在列表页上？
-  //   let tempId = this.props.match.params.id;
+  let tempId = this.props.match.params.id;
   // });
 
   return (
@@ -17,12 +15,7 @@ const SelectForm = () => {
           icon="search"
           iconPosition="left"
           placeholder="Enter ID to search "
-          // onChange={(e)=>{e.target.value}}
-          onKeyDown={(e) => {
-            if (e.keyCode === 13) {
-              console.log("执行搜索工作的方法");
-            }
-          }}
+          // onChange={this.handleChange}
         />
       </Segment>
       <Router>

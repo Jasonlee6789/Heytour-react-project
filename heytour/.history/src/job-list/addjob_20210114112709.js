@@ -32,7 +32,7 @@ function AddJob() {
   const [postedOn, setPostedOn] = useState("");
 
   useEffect(() => {
-    console.log("执行了进入Admin权限的页面");
+    console.log("执行了添加工作");
   }, []);
 
   const changeId = (e) => {
@@ -105,22 +105,35 @@ function AddJob() {
     let dateText = postedOn.replace("-", "/");
     dataProps.addTime = new Date(dateText).getTime() / 1000;
 
-    axios({
-      method: "post",
-      url: "https://localhost:44351/api/jobs/",
-      data: dataProps,
-      // 表示跨域请求时是否需要使用凭证.
-      withCredentials: false,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-      },
-    }).then((res) => {
-      if (res.code == 200) {
-        <Message success header="Form Completed" content="发布成功" />;
-      }
-      console.log(res.data);
-    });
+    if (id == 0) {
+      axios({
+        method: "post",
+        url: "https://localhost:44351/api/jobs/",
+        data: dataProps,
+        // 表示跨域请求时是否需要使用凭证.
+        withCredentials: true,
+      }).then((res) => {
+        if (res.code == 200) {
+          <Message success header="Form Completed" content="发布成功" />;
+        }
+        console.log(res.data);
+      });
+    }
+
+    // if (id == 1) {
+    //   axios({
+    //     method: "put",
+    //     url: "https://localhost:44351/api/jobs/",
+    //     data: dataProps,
+    //     // 表示跨域请求时是否需要使用凭证.
+    //     withCredentials: true,
+    //   }).then((res) => {
+    //     if (res.code == 200) {
+    //       alert("更改成功");
+    //     }
+    //     console.log(res.data);
+    //   });
+    // }
   };
 
   return (

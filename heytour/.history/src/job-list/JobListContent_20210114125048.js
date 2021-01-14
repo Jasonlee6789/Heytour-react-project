@@ -5,7 +5,7 @@ import moment from "moment";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export default function JobListContent(props) {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(0);
 
   // const data = data.map((props.job) => {
   return (

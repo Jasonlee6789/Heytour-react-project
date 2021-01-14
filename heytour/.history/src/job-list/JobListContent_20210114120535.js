@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Image, Card, Grid, Icon } from "semantic-ui-react";
 // import data from "./data.json";
 import moment from "moment";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export default function JobListContent(props) {
-  const [isAdmin, setIsAdmin] = useState(false);
-
+  // function Jump() {
+  //   return (
+  //     <Router>
+  //       <Route path="/job/:id" component={JobDetail} />
+  //     </Router>
+  //   );
+  // }
   // const data = data.map((props.job) => {
   return (
     <Grid.Row>

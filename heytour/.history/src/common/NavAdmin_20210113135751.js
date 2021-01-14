@@ -7,7 +7,9 @@ import JobAdmin from "../job-list/JobAdmin";
 export default function NavAdmin() {
   function toJobAdmin() {
     <Router>
-      <Route path="/admin/" exact component={JobAdmin} />;
+      <div>
+        <Route path="/admin/" exact component={JobAdmin} />;
+      </div>
     </Router>;
   }
   return (
@@ -26,19 +28,17 @@ export default function NavAdmin() {
             }}
           />
         </Link> */}
-        <Link to="/admin/">
-          <Button
-            //onClick={() => props.putJob(props.job.id)}
-            //icon="edit"
-            //floated="left"
-            content="管理发布的工作"
-            primary
-            onClick={() => {
-              console.log("点击了管理发布的工作");
-            }}
-          />
-          <Route path="/admin/" exact component={JobAdmin} />;
-        </Link>
+        <Route path="/admin/" exact component={JobAdmin} />;
+        <Button
+          //onClick={() => props.putJob(props.job.id)}
+          //icon="edit"
+          //floated="left"
+          content="管理发布的工作"
+          primary
+          onClick={() => {
+            console.log("点击了更改工作");
+          }}
+        />
       </Router>
     </div>
   );

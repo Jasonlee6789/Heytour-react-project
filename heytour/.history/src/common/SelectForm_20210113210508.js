@@ -5,7 +5,6 @@ import JobList from "../job-list/JobList";
 
 const SelectForm = () => {
   // useEffect(() => {
-  //Todo:怎么定义一个方法，输入内容 摁回车 会去搜索 并显示在列表页上？
   //   let tempId = this.props.match.params.id;
   // });
 
@@ -17,7 +16,7 @@ const SelectForm = () => {
           icon="search"
           iconPosition="left"
           placeholder="Enter ID to search "
-          // onChange={(e)=>{e.target.value}}
+          // onChange={this.handleChange}
           onKeyDown={(e) => {
             if (e.keyCode === 13) {
               console.log("执行搜索工作的方法");

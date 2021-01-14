@@ -26,19 +26,17 @@ export default function NavAdmin() {
             }}
           />
         </Link> */}
-        <Link to="/admin/">
-          <Button
-            //onClick={() => props.putJob(props.job.id)}
-            //icon="edit"
-            //floated="left"
-            content="管理发布的工作"
-            primary
-            onClick={() => {
-              console.log("点击了管理发布的工作");
-            }}
-          />
-          <Route path="/admin/" exact component={JobAdmin} />;
-        </Link>
+        <Button
+          //onClick={() => props.putJob(props.job.id)}
+          //icon="edit"
+          //floated="left"
+          content="管理发布的工作"
+          primary
+          onClick={() => {
+            console.log("点击了管理发布的工作");
+          }}
+        />
+        <Route path="/admin/" exact component={JobAdmin} />;
       </Router>
     </div>
   );

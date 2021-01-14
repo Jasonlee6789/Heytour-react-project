@@ -37,7 +37,7 @@ export function useJobList(initialFilter) {
   });
   const url = "https://localhost:44351/api/jobs";
   const didMountRef = useRef(true);
-  //useRef修改ref的值不会重新render,在组件更新时触发设置成true
+  //修改ref的值不会重新render,在组件更新时触发设置成true
   //达成在第一次渲染时，会不会render这个地方
   // const data = JobData;
   const [filter, setFilter] = useState(null);
@@ -63,7 +63,6 @@ export function useJobList(initialFilter) {
         dispatch({ type: "FETCH_FAILURE" });
       }
     }
-
     if (didMountRef.current) {
       getJobs();
     }
@@ -74,7 +73,6 @@ export function useJobList(initialFilter) {
 export function useJobDelete() {
   const didMountRef = useRef(false);
   //useRef可以保存组件更新前的一些状态
-  //组件更新时，ref.current中保存的值不会自动更新，需要我们手动更新
   const url = "https://localhost:44351/api/jobs/";
 
   const [id, setId] = useState(null);

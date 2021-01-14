@@ -39,17 +39,13 @@ function JobAdmin() {
         {jobs &&
           jobs.map((job, index) => {
             return (
-              <Router>
-                <Link to={"/jobs/" + job.id}>
-                  <JobListContent
-                    key={job.id}
-                    //isLoading={jobListResponse.isLoading}
-                    job={job}
-                    deleteJob={handleDelete}
-                    // putJob={onPutjob}
-                  />
-                </Link>
-              </Router>
+              <JobListContent
+                key={job.id}
+                //isLoading={jobListResponse.isLoading}
+                job={job}
+                deleteJob={handleDelete}
+                // putJob={onPutjob}
+              />
             );
           })}
       </Grid>

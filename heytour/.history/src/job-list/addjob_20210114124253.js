@@ -32,7 +32,7 @@ function AddJob() {
   const [postedOn, setPostedOn] = useState("");
 
   useEffect(() => {
-    console.log("执行了进入Admin权限的页面");
+    console.log("执行了添加工作");
   }, []);
 
   const changeId = (e) => {

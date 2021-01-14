@@ -40,7 +40,7 @@ function JobAdmin() {
           jobs.map((job, index) => {
             return (
               <Router>
-                <Link to={"/jobs/" + job.id}>
+                <Link>
                   <JobListContent
                     key={job.id}
                     //isLoading={jobListResponse.isLoading}
