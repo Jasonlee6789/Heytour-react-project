@@ -97,8 +97,8 @@ export default function JobList() {
         defaultActivePage={5}
         totalPages={10}
         floated="right"
-        onPageChange={() => {
-          console.log("翻页");
+        onPageChange={(data) => {
+          console.log(data);
         }}
       />
     </div>

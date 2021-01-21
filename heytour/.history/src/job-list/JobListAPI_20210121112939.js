@@ -189,14 +189,6 @@ export function useJobPost() {
         console.log(error);
         dispatch({ type: "FETCH_FAILURE" });
       }
-
-      if (didMountRef.current && job) {
-        postJob();
-      } else {
-        didMountRef.current = true;
-      }
     };
-  }, [job]);
-
-  return [state, setJob];
+  });
 }

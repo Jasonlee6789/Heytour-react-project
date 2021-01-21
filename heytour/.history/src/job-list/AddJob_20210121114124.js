@@ -6,7 +6,7 @@ import {
   Input,
   TextArea,
   Button,
-  Icon,
+  Select,
   Message,
 } from "semantic-ui-react";
 import axios from "axios";
@@ -29,6 +29,7 @@ function AddJob() {
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
   const [jobDesc, setJobDesc] = useState("");
+  const [postedOn, setPostedOn] = useState("");
 
   useEffect(() => {
     console.log("执行了进入Admin权限的页面");
@@ -71,6 +72,32 @@ function AddJob() {
   };
 
   const saveJob = () => {
+    // if (!setId) {
+    //   Message.error("必须输入ID");
+    //   return false;
+    // } else if (!setIsActive) {
+    //   Message.error("必须选择IsActive");
+    //   return false;
+    // } else if (!setTitle) {
+    //   Message.error("工作Title不能为空");
+    //   return false;
+    // } else if (!setIndustry) {
+    //   Message.error("工作Industry不能为空");
+    //   return false;
+    // } else if (!setCompany) {
+    //   Message.error("工作Company不能为空");
+    //   return false;
+    // } else if (!setLocation) {
+    //   Message.error("工作Location不能为空");
+    //   return false;
+    // } else if (!setEmail) {
+    //   Message.error("Email不能为空");
+    //   return false;
+    // } else if (!setPostedOn) {
+    //   Message.error("PostedOn不能为空");
+    //   return false;
+    // }
+
     let dataProps = {};
     //id是数字,id是由数据库自动生成的,不能带着id插入
     dataProps.id = parseInt(id);
@@ -116,25 +143,8 @@ function AddJob() {
       <Modal.Header>Post新工作</Modal.Header>
       <Modal.Content>
         <Form>
-          <Form.Checkbox
-            required
-            toggle
-            name="IsActive"
-            label="Active"
-            checked={isActive}
-            placeholder="IsActive"
-            onChange={changeIsActive}
-          />
-
           <Form.Group widths="equal">
             <Form.Field
-              control={Input}
-              label="id"
-              placeholder="id"
-              onChange={changeId}
-            />
-            <Form.Field
-              required
               control={Input}
               label="Title"
               placeholder="Title"
@@ -146,15 +156,25 @@ function AddJob() {
               placeholder="Industry"
               onChange={changeIndustry}
             />
+            <Form.Field
+              control={Select}
+              options={genderOptions}
+              label={{
+                children: "IsActive",
+                htmlFor: "form-select-control-gender",
+              }}
+              placeholder="IsActive"
+              onChange={changeIsActive}
+              search
+              searchInput={{ id: "form-select-control-gender" }}
+            />
           </Form.Group>
-
           <Form.Field
             control={Input}
             label="Picture"
             placeholder="Picture Url"
             onChange={changePicture}
           />
-
           <Form.Group widths="equal">
             <Form.Field
               id="form-input-control-Company"
@@ -174,7 +194,7 @@ function AddJob() {
 
           <Form.Group>
             <Form.Field
-              required
+              id="form-input-control-Email"
               control={Input}
               label="Email"
               placeholder="Email"
@@ -182,11 +202,19 @@ function AddJob() {
               width={7}
             />
             <Form.Field
-              required
+              id="form-input-control-PostedOn"
               control={Input}
               label="PostedOn"
               placeholder="PostedOn"
-              width={9}
+              width={7}
+            />
+            <Form.Field
+              id="form-input-control-PostedOn"
+              control={Input}
+              label="id"
+              placeholder="id"
+              width={2}
+              onChange={changeId}
             />
           </Form.Group>
 
@@ -205,7 +233,6 @@ function AddJob() {
               console.log("点击了发布工作");
             }}
           >
-            <Icon name="save" />
             Post
           </Button>
         </Form>

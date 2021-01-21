@@ -6,7 +6,7 @@ import {
   Input,
   TextArea,
   Button,
-  Icon,
+  Select,
   Message,
 } from "semantic-ui-react";
 import axios from "axios";
@@ -125,7 +125,6 @@ function AddJob() {
             placeholder="IsActive"
             onChange={changeIsActive}
           />
-
           <Form.Group widths="equal">
             <Form.Field
               control={Input}
@@ -134,7 +133,6 @@ function AddJob() {
               onChange={changeId}
             />
             <Form.Field
-              required
               control={Input}
               label="Title"
               placeholder="Title"
@@ -174,7 +172,7 @@ function AddJob() {
 
           <Form.Group>
             <Form.Field
-              required
+              id="form-input-control-Email"
               control={Input}
               label="Email"
               placeholder="Email"
@@ -182,7 +180,7 @@ function AddJob() {
               width={7}
             />
             <Form.Field
-              required
+              id="form-input-control-PostedOn"
               control={Input}
               label="PostedOn"
               placeholder="PostedOn"
@@ -205,7 +203,6 @@ function AddJob() {
               console.log("点击了发布工作");
             }}
           >
-            <Icon name="save" />
             Post
           </Button>
         </Form>

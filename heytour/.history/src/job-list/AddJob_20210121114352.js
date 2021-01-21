@@ -6,7 +6,7 @@ import {
   Input,
   TextArea,
   Button,
-  Icon,
+  Select,
   Message,
 } from "semantic-ui-react";
 import axios from "axios";
@@ -116,25 +116,8 @@ function AddJob() {
       <Modal.Header>Post新工作</Modal.Header>
       <Modal.Content>
         <Form>
-          <Form.Checkbox
-            required
-            toggle
-            name="IsActive"
-            label="Active"
-            checked={isActive}
-            placeholder="IsActive"
-            onChange={changeIsActive}
-          />
-
           <Form.Group widths="equal">
             <Form.Field
-              control={Input}
-              label="id"
-              placeholder="id"
-              onChange={changeId}
-            />
-            <Form.Field
-              required
               control={Input}
               label="Title"
               placeholder="Title"
@@ -145,6 +128,18 @@ function AddJob() {
               label="Industry"
               placeholder="Industry"
               onChange={changeIndustry}
+            />
+            <Form.Field
+              control={Select}
+              options={genderOptions}
+              label={{
+                children: "IsActive",
+                htmlFor: "form-select-control-gender",
+              }}
+              placeholder="IsActive"
+              onChange={changeIsActive}
+              search
+              searchInput={{ id: "form-select-control-gender" }}
             />
           </Form.Group>
 
@@ -174,7 +169,7 @@ function AddJob() {
 
           <Form.Group>
             <Form.Field
-              required
+              id="form-input-control-Email"
               control={Input}
               label="Email"
               placeholder="Email"
@@ -182,11 +177,19 @@ function AddJob() {
               width={7}
             />
             <Form.Field
-              required
+              id="form-input-control-PostedOn"
               control={Input}
               label="PostedOn"
               placeholder="PostedOn"
-              width={9}
+              width={7}
+            />
+            <Form.Field
+              id="form-input-control-PostedOn"
+              control={Input}
+              label="id"
+              placeholder="id"
+              width={2}
+              onChange={changeId}
             />
           </Form.Group>
 
@@ -205,7 +208,6 @@ function AddJob() {
               console.log("点击了发布工作");
             }}
           >
-            <Icon name="save" />
             Post
           </Button>
         </Form>

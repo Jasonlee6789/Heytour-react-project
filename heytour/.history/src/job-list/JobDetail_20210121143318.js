@@ -9,7 +9,7 @@ export default function JobDetail(props) {
   //组件更新时，ref.current中保存的值不会自动更新，需要我们手动更新
 
   const [jobSaveResponse, setJobRequest] = useJobSave();
-  // 上面第一个就是hook:useJobSave()里面return的state 第二个是对应setJob来更新state的
+  // 上面第一个就是hook:useJobSave()return的state 第二个是对应setJob来更新state的
 
   const [state, dispatch] = useReducer(jobDetailReducer, {
     jobDetail: props.jobSelected,
@@ -26,7 +26,6 @@ export default function JobDetail(props) {
         dispatch({ type: "JOBDETAIL_LOADING" });
       } else {
         dispatch({ type: "JOBDETAIL_SUCCESS", payload: jobSaveResponse.data });
-        props.onSave(state.jobDetail);
       }
     } else {
       didMountRef.current = true;

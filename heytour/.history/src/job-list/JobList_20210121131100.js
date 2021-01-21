@@ -51,12 +51,6 @@ export default function JobList() {
     dispatch({ type: "JOBDETAIL_CLOSE" });
   }
 
-  function handleSave(job) {
-    let jobs = state.jobs.filter((j) => j.id !== job.id);
-    jobs.unshift(job);
-    dispatch({ type: "JOBDETAIL_SAVE", payload: jobs });
-  }
-
   return (
     <div>
       <Breadcrumb>
@@ -82,23 +76,12 @@ export default function JobList() {
           );
         })}
       </Grid>
-
-      {state.jobDetailOpen && (
-        <JobDetail
-          isCreate={state.isCreate}
-          open={state.jobDetailOpen}
-          onClose={handleJobDetailClose}
-          onSave={handleSave}
-          jobSelected={state.jobSelected}
-        />
-      )}
-
       <Pagination
         defaultActivePage={5}
         totalPages={10}
         floated="right"
-        onPageChange={() => {
-          console.log("翻页");
+        onPageChange={(data) => {
+          console.log(data);
         }}
       />
     </div>

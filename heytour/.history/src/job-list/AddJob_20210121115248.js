@@ -6,7 +6,7 @@ import {
   Input,
   TextArea,
   Button,
-  Icon,
+  Select,
   Message,
 } from "semantic-ui-react";
 import axios from "axios";

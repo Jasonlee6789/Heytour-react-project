@@ -197,6 +197,4 @@ export function useJobPost() {
       }
     };
   }, [job]);
-
-  return [state, setJob];
 }

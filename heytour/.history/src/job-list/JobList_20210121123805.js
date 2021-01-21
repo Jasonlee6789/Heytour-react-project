@@ -29,11 +29,7 @@ export default function JobList() {
     }
 
     if (jobDeleteResponse.data && !jobDeleteResponse.isError) {
-      //setJobs(jobs.filter((job) => job.id !== jobDeleteResponse.data));
-      dispatch({
-        type: "JOBLIST_SUCCESS",
-        payload: state.jobs.filter((job) => job.id !== jobDeleteResponse.data),
-      });
+      setJobs(jobs.filter((job) => job.id !== jobDeleteResponse.data));
     }
   }, [jobListResponse, jobDeleteResponse]);
   //const pages = 3;
@@ -45,16 +41,6 @@ export default function JobList() {
 
   function handleJobDetailEDIT(job) {
     dispatch({ type: "JOBDETAIL_EDIT", payload: job });
-  }
-
-  function handleJobDetailClose() {
-    dispatch({ type: "JOBDETAIL_CLOSE" });
-  }
-
-  function handleSave(job) {
-    let jobs = state.jobs.filter((j) => j.id !== job.id);
-    jobs.unshift(job);
-    dispatch({ type: "JOBDETAIL_SAVE", payload: jobs });
   }
 
   return (
@@ -82,23 +68,12 @@ export default function JobList() {
           );
         })}
       </Grid>
-
-      {state.jobDetailOpen && (
-        <JobDetail
-          isCreate={state.isCreate}
-          open={state.jobDetailOpen}
-          onClose={handleJobDetailClose}
-          onSave={handleSave}
-          jobSelected={state.jobSelected}
-        />
-      )}
-
       <Pagination
         defaultActivePage={5}
         totalPages={10}
         floated="right"
-        onPageChange={() => {
-          console.log("翻页");
+        onPageChange={(data) => {
+          console.log(data);
         }}
       />
     </div>

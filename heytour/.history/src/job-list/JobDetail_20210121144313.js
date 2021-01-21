@@ -26,7 +26,6 @@ export default function JobDetail(props) {
         dispatch({ type: "JOBDETAIL_LOADING" });
       } else {
         dispatch({ type: "JOBDETAIL_SUCCESS", payload: jobSaveResponse.data });
-        props.onSave(state.jobDetail);
       }
     } else {
       didMountRef.current = true;

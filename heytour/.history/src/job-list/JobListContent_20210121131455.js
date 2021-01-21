@@ -4,6 +4,8 @@ import { Button, Image, Card, Grid, Icon } from "semantic-ui-react";
 import moment from "moment";
 
 export default function JobListContent(props) {
+  //  const [isAdmin, setIsAdmin] = useState(false);
+
   // const data = data.map((props.job) => {
   return (
     <Grid.Row>

@@ -88,8 +88,6 @@ export default function JobList() {
           isCreate={state.isCreate}
           open={state.jobDetailOpen}
           onClose={handleJobDetailClose}
-          onSave={handleSave}
-          jobSelected={state.jobSelected}
         />
       )}
 
@@ -97,8 +95,8 @@ export default function JobList() {
         defaultActivePage={5}
         totalPages={10}
         floated="right"
-        onPageChange={() => {
-          console.log("翻页");
+        onPageChange={(data) => {
+          console.log(data);
         }}
       />
     </div>

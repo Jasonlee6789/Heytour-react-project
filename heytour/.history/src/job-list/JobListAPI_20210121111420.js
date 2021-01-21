@@ -170,33 +170,4 @@ export function useJobPost() {
   const url = servicePath.getJobs;
 
   const [job, setJob] = useState(null);
-
-  const [state, dispatch] = useReducer(jobAPIReducer, {
-    isLoading: false,
-    isError: false,
-    data: null,
-  });
-
-  useEffect(() => {
-    const postJob = async () => {
-      dispatch({ type: "FETCH_INIT" });
-
-      try {
-        const response = await axios.post(url, job);
-        console.log(response);
-        dispatch({ type: "FETCH_SUCCESS", payload: response.data });
-      } catch (error) {
-        console.log(error);
-        dispatch({ type: "FETCH_FAILURE" });
-      }
-
-      if (didMountRef.current && job) {
-        postJob();
-      } else {
-        didMountRef.current = true;
-      }
-    };
-  }, [job]);
-
-  return [state, setJob];
 }

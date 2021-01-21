@@ -6,7 +6,7 @@ import {
   Input,
   TextArea,
   Button,
-  Icon,
+  Select,
   Message,
 } from "semantic-ui-react";
 import axios from "axios";
@@ -205,7 +205,6 @@ function AddJob() {
               console.log("点击了发布工作");
             }}
           >
-            <Icon name="save" />
             Post
           </Button>
         </Form>

@@ -185,18 +185,7 @@ export function useJobPost() {
         const response = await axios.post(url, job);
         console.log(response);
         dispatch({ type: "FETCH_SUCCESS", payload: response.data });
-      } catch (error) {
-        console.log(error);
-        dispatch({ type: "FETCH_FAILURE" });
-      }
-
-      if (didMountRef.current && job) {
-        postJob();
-      } else {
-        didMountRef.current = true;
-      }
+      } catch (error) {}
     };
-  }, [job]);
-
-  return [state, setJob];
+  });
 }
