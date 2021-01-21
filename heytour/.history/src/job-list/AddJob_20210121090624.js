@@ -20,7 +20,7 @@ function AddJob() {
     { key: "f", text: "False", value: "female" },
   ];
 
-  const [id, setId] = useState(0); //文章的ID，如果是0说明是新增加工作，如果不是0，说明是修改
+  //const [id, setId] = useState(0); //文章的ID，如果是0说明是新增加工作，如果不是0，说明是修改
   const [isActive, setIsActive] = useState(true);
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
@@ -34,10 +34,6 @@ function AddJob() {
   useEffect(() => {
     console.log("执行了进入Admin权限的页面");
   }, []);
-
-  const changeId = (e) => {
-    setId(e.target.value);
-  };
 
   const changePicture = (e) => {
     setPicture(e.target.value);
@@ -110,7 +106,7 @@ function AddJob() {
     // let dateText = postedOn.replace("-", "/");
     // dataProps.addTime = new Date(dateText).getTime() / 1000;
     //确保数据模型正确
-    dataProps.postedOn = new Date();
+    dataProps.postedOn = new Date().getTime();
     dataProps.picture = "";
     console.log(dataProps);
     let data = new FormData();
@@ -210,15 +206,7 @@ function AddJob() {
               control={Input}
               label="PostedOn"
               placeholder="PostedOn"
-              width={7}
-            />
-            <Form.Field
-              id="form-input-control-PostedOn"
-              control={Input}
-              label="id"
-              placeholder="id"
-              width={2}
-              onChange={changeId}
+              width={9}
             />
           </Form.Group>
 

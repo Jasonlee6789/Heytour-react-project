@@ -20,7 +20,7 @@ function AddJob() {
     { key: "f", text: "False", value: "female" },
   ];
 
-  const [id, setId] = useState(0); //文章的ID，如果是0说明是新增加工作，如果不是0，说明是修改
+  //const [id, setId] = useState(0); //文章的ID，如果是0说明是新增加工作，如果不是0，说明是修改
   const [isActive, setIsActive] = useState(true);
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
@@ -35,12 +35,8 @@ function AddJob() {
     console.log("执行了进入Admin权限的页面");
   }, []);
 
-  const changeId = (e) => {
-    setId(e.target.value);
-  };
-
   const changePicture = (e) => {
-    setPicture(e.target.value);
+    setId(e.target.value);
   };
 
   const changeTitle = (e) => {
@@ -100,7 +96,7 @@ function AddJob() {
 
     let dataProps = {};
     //id是数字,id是由数据库自动生成的,不能带着id插入
-    dataProps.id = parseInt(id);
+    // dataProps.id = parseInt(id);
     dataProps.title = title;
     dataProps.location = location;
     dataProps.industry = industry;
@@ -110,14 +106,14 @@ function AddJob() {
     // let dateText = postedOn.replace("-", "/");
     // dataProps.addTime = new Date(dateText).getTime() / 1000;
     //确保数据模型正确
-    dataProps.postedOn = new Date();
+    dataProps.postedOn = new Date().getTime();
     dataProps.picture = "";
     console.log(dataProps);
     let data = new FormData();
     data.set("job", dataProps);
 
     axios
-      .post("https://localhost:5001/api/jobs", dataProps, {
+      .post("https://localhost:5001/api/jobs/", dataProps, {
         processData: false,
         contentType: false,
       })
@@ -147,8 +143,8 @@ function AddJob() {
             <Form.Field
               id="form-input-control-ID"
               control={Input}
-              label="Picture"
-              placeholder="Picture"
+              label="ID"
+              placeholder="ID"
               onChange={changePicture}
             />
             <Form.Field
@@ -210,15 +206,7 @@ function AddJob() {
               control={Input}
               label="PostedOn"
               placeholder="PostedOn"
-              width={7}
-            />
-            <Form.Field
-              id="form-input-control-PostedOn"
-              control={Input}
-              label="id"
-              placeholder="id"
-              width={2}
-              onChange={changeId}
+              width={9}
             />
           </Form.Group>
 

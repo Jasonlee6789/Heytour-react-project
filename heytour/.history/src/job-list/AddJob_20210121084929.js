@@ -25,7 +25,7 @@ function AddJob() {
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
   const [industry, setIndustry] = useState("");
-  const [picture, setPicture] = useState("");
+  // const [picture, setPicture] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
   const [jobDesc, setJobDesc] = useState("");
@@ -37,10 +37,6 @@ function AddJob() {
 
   const changeId = (e) => {
     setId(e.target.value);
-  };
-
-  const changePicture = (e) => {
-    setPicture(e.target.value);
   };
 
   const changeTitle = (e) => {
@@ -110,14 +106,14 @@ function AddJob() {
     // let dateText = postedOn.replace("-", "/");
     // dataProps.addTime = new Date(dateText).getTime() / 1000;
     //确保数据模型正确
-    dataProps.postedOn = new Date();
+    dataProps.postedOn = new Date().getTime();
     dataProps.picture = "";
     console.log(dataProps);
     let data = new FormData();
     data.set("job", dataProps);
 
     axios
-      .post("https://localhost:5001/api/jobs", dataProps, {
+      .post("https://localhost:5001/api/jobs/", dataProps, {
         processData: false,
         contentType: false,
       })
@@ -147,9 +143,9 @@ function AddJob() {
             <Form.Field
               id="form-input-control-ID"
               control={Input}
-              label="Picture"
-              placeholder="Picture"
-              onChange={changePicture}
+              label="ID"
+              placeholder="ID"
+              onChange={changeId}
             />
             <Form.Field
               id="form-input-control-Title"
@@ -210,15 +206,7 @@ function AddJob() {
               control={Input}
               label="PostedOn"
               placeholder="PostedOn"
-              width={7}
-            />
-            <Form.Field
-              id="form-input-control-PostedOn"
-              control={Input}
-              label="id"
-              placeholder="id"
-              width={2}
-              onChange={changeId}
+              width={9}
             />
           </Form.Group>
 

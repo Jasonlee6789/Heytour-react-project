@@ -110,7 +110,7 @@ function AddJob() {
     // let dateText = postedOn.replace("-", "/");
     // dataProps.addTime = new Date(dateText).getTime() / 1000;
     //确保数据模型正确
-    dataProps.postedOn = new Date();
+    dataProps.postedOn = new Date().getTime();
     dataProps.picture = "";
     console.log(dataProps);
     let data = new FormData();
@@ -218,7 +218,6 @@ function AddJob() {
               label="id"
               placeholder="id"
               width={2}
-              onChange={changeId}
             />
           </Form.Group>
 
