@@ -113,9 +113,10 @@ function AddJob() {
     data.set("job", dataProps);
 
     axios
-      .post("https://localhost:5001/api/jobs/", dataProps, {
-        processData: false,
-        contentType: false,
+      .post("https://localhost:5001/api/jobs/", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       })
       .then((res) => {
         if (res.code == 200) {

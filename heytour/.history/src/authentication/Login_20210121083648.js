@@ -31,7 +31,7 @@ export default function Login(props) {
   }, [login]);
 
   function handleLogin() {
-    //dispatch({ type: "AUTH_LOADING" });
+    dispatch({ type: "AUTH_LOADING" });
     const user = {
       username: state.username,
       password: state.password,

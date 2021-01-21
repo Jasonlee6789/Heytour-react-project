@@ -106,16 +106,17 @@ function AddJob() {
     // let dateText = postedOn.replace("-", "/");
     // dataProps.addTime = new Date(dateText).getTime() / 1000;
     //确保数据模型正确
-    dataProps.postedOn = new Date().getTime();
+    dataProps.postedOn = new Date();
     dataProps.picture = "";
-    console.log(dataProps);
+    // console.log(dataProps);
     let data = new FormData();
-    data.set("job", dataProps);
+    data.set("id", 123);
 
     axios
-      .post("https://localhost:5001/api/jobs/", dataProps, {
-        processData: false,
-        contentType: false,
+      .post("https://localhost:5001/api/jobs/", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       })
       .then((res) => {
         if (res.code == 200) {

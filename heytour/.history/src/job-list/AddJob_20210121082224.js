@@ -108,14 +108,15 @@ function AddJob() {
     //确保数据模型正确
     dataProps.postedOn = new Date().getTime();
     dataProps.picture = "";
-    console.log(dataProps);
+    // console.log(dataProps);
     let data = new FormData();
-    data.set("job", dataProps);
+    data.set("id", 123);
 
     axios
-      .post("https://localhost:5001/api/jobs/", dataProps, {
-        processData: false,
-        contentType: false,
+      .post("https://localhost:5001/api/jobs/", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       })
       .then((res) => {
         if (res.code == 200) {

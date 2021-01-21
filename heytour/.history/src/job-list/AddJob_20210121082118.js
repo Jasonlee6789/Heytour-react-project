@@ -96,26 +96,25 @@ function AddJob() {
 
     let dataProps = {};
     //id是数字,
-    dataProps.id = parseInt(id);
+    dataProps.id =parseInt(id);
     dataProps.title = title;
     dataProps.location = location;
     dataProps.industry = industry;
     dataProps.company = company;
     dataProps.email = email;
     dataProps.jobDesc = jobDesc;
-    // let dateText = postedOn.replace("-", "/");
-    // dataProps.addTime = new Date(dateText).getTime() / 1000;
-    //确保数据模型正确
-    dataProps.postedOn = new Date().getTime();
-    dataProps.picture = "";
-    console.log(dataProps);
+    let dateText = postedOn.replace("-", "/");
+    dataProps.addTime = new Date(dateText).getTime() / 1000;
+
+    // console.log(dataProps);
     let data = new FormData();
-    data.set("job", dataProps);
+    data.set("id", 123);
 
     axios
-      .post("https://localhost:5001/api/jobs/", dataProps, {
-        processData: false,
-        contentType: false,
+      .post("https://localhost:5001/api/jobs/", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       })
       .then((res) => {
         if (res.code == 200) {
