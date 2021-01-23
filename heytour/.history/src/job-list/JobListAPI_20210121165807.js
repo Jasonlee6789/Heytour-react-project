@@ -22,7 +22,7 @@ function jobAPIReducer(state, action) {
       return {
         ...state,
         isLoading: false,
-        isError: true,
+        ieError: true,
       };
 
     default:
@@ -132,7 +132,7 @@ export function useJobSave() {
       try {
         const response = await axios.put(url + job.id, job);
         console.log(response);
-        dispatch({ type: "FETCH_SUCCESS", payload: job });
+        dispatch({ type: "FETCH_SUCCESS", payload: response.data });
       } catch (error) {
         console.log(error);
         dispatch({ type: "FETCH_FAILURE" });

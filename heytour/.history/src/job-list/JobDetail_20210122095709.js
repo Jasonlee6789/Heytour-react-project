@@ -36,12 +36,12 @@ export default function JobDetail(props) {
   function handleSave(e) {
     e.preventDefault();
     //Object.assign(target, ...sources)源对象分配到目标对象。它将返回目标对象。
-    const job = Object.assign({}, state.jobDetail);
+    const job = Object.assign({}, state.JobDetail);
     setJobRequest(job);
   }
 
   function handleChange(e, { name, value }) {
-    const job = Object.assign({}, state.jobDetail);
+    const job = Object.assign({}, state.JobDetail);
 
     job[name] = value;
 

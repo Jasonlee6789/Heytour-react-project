@@ -1,16 +1,19 @@
-import React, { useEffect, useReducer } from "react";
-import { Grid, Breadcrumb } from "semantic-ui-react";
+import React, { useEffect, useState, useReducer } from "react";
+import { Grid, Breadcrumb, Pagination } from "semantic-ui-react";
 import { useJobDelete, useJobList } from "./JobListAPI";
+
+import SelectForm from "../common/SelectForm";
+
 import JobListContent from "./JobListContent";
-import { Link } from "react-router-dom";
 import JobDetail from "./JobDetail";
 import jobListReducer from "./JobListReducer";
 
-function JobAdmin() {
+export default function JobList() {
   const [jobListResponse, setJobListFilter] = useJobList(null);
   const [jobDeleteResponse, setJobId] = useJobDelete();
 
   //const [jobs, setJobs] = useState(null);
+
   const [state, dispatch] = useReducer(jobListReducer, {
     jobs: [],
     jobSelected: {},
@@ -24,17 +27,19 @@ function JobAdmin() {
 
     if (jobListResponse.data && !jobListResponse.isError) {
       // setJobs(jobListResponse.data);
-      dispatch({ type: "JOB_SUCCESS", payload: jobListResponse.data });
+      dispatch({ type: "JOBLIST_SUCCESS", payload: jobListResponse.data });
     }
 
     if (jobDeleteResponse.data && !jobDeleteResponse.isError) {
       //setJobs(jobs.filter((job) => job.id !== jobDeleteResponse.data));
       dispatch({
-        type: "JOB_SUCCESS",
+        type: "JOBLIST_SUCCESS",
         payload: state.jobs.filter((job) => job.id !== jobDeleteResponse.data),
       });
     }
   }, [jobListResponse, jobDeleteResponse]);
+  //const pages = 3;
+  // let pageLen = Math.ceil(jobs.length / pages);
 
   function handleDelete(id) {
     setJobId(id);
@@ -48,36 +53,37 @@ function JobAdmin() {
     dispatch({ type: "JOBDETAIL_CLOSE" });
   }
 
-  function handleSave(job) {}
+  function handleSave(job) {
+    let jobs = state.jobs.filter((j) => j.id !== job.id);
+    jobs.unshift(job);
+    dispatch({ type: "JOBDETAIL_SAVE", payload: jobs });
+  }
 
   return (
     <div>
       <Breadcrumb>
-        <Link to={"/home"}>
-          {" "}
-          <Breadcrumb.Section link>Home</Breadcrumb.Section>
-        </Link>
+        <Breadcrumb.Section link>Home</Breadcrumb.Section>
         <Breadcrumb.Divider />
-        <Breadcrumb.Section active>Admin</Breadcrumb.Section>
+        <Breadcrumb.Section active>Jobs</Breadcrumb.Section>
       </Breadcrumb>
+      <SelectForm />
       <Grid>
         {/* {jobListResponse.data &&
           jobListResponse.data.map((job, index) => { */}
         {/* {jobs && */}
-        {state.jobs.map((job, index) => {
+        {state.jobs.map((job) => {
           return (
-            <Link to={"/jobs/" + job.id}>
-              <JobListContent
-                key={job.id}
-                //isLoading={jobListResponse.isLoading}
-                job={job}
-                deleteJob={handleDelete}
-                onEdit={handleJobDetailEDIT}
-              />
-            </Link>
+            <JobListContent
+              key={job.id}
+              //isLoading={jobListResponse.isLoading}
+              job={job}
+              deleteJob={handleDelete}
+              onEdit={handleJobDetailEDIT}
+            />
           );
         })}
       </Grid>
+
       {state.jobDetailOpen && (
         <JobDetail
           isCreate={state.isCreate}
@@ -87,8 +93,15 @@ function JobAdmin() {
           jobSelected={state.jobSelected}
         />
       )}
+
+      <Pagination
+        defaultActivePage={5}
+        totalPages={10}
+        floated="right"
+        onPageChange={() => {
+          console.log("翻页");
+        }}
+      />
     </div>
   );
 }
-
-export default JobAdmin;

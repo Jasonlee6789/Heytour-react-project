@@ -40,16 +40,6 @@ function JobAdmin() {
     setJobId(id);
   }
 
-  function handleJobDetailEDIT(job) {
-    dispatch({ type: "JOBDETAIL_EDIT", payload: job });
-  }
-
-  function handleJobDetailClose() {
-    dispatch({ type: "JOBDETAIL_CLOSE" });
-  }
-
-  function handleSave(job) {}
-
   return (
     <div>
       <Breadcrumb>
@@ -72,21 +62,12 @@ function JobAdmin() {
                 //isLoading={jobListResponse.isLoading}
                 job={job}
                 deleteJob={handleDelete}
-                onEdit={handleJobDetailEDIT}
+                // putJob={onPutjob}
               />
             </Link>
           );
         })}
       </Grid>
-      {state.jobDetailOpen && (
-        <JobDetail
-          isCreate={state.isCreate}
-          open={state.jobDetailOpen}
-          onClose={handleJobDetailClose}
-          onSave={handleSave}
-          jobSelected={state.jobSelected}
-        />
-      )}
     </div>
   );
 }

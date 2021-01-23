@@ -78,15 +78,6 @@ function JobAdmin() {
           );
         })}
       </Grid>
-      {state.jobDetailOpen && (
-        <JobDetail
-          isCreate={state.isCreate}
-          open={state.jobDetailOpen}
-          onClose={handleJobDetailClose}
-          onSave={handleSave}
-          jobSelected={state.jobSelected}
-        />
-      )}
     </div>
   );
 }

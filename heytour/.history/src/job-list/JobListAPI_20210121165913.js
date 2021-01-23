@@ -22,7 +22,7 @@ function jobAPIReducer(state, action) {
       return {
         ...state,
         isLoading: false,
-        isError: true,
+        ieError: true,
       };
 
     default:
