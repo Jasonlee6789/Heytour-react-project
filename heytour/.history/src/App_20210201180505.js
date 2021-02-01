@@ -12,17 +12,17 @@ function App() {
     <Router>
       <div className="App">
         <AppMenu />
+        <Route
+          path="/"
+          exact
+          render={(props) => (
+            <div>
+              <JobList />
+            </div>
+          )}
+        />
+
         <Container style={{ margin: "1em" }}>
-          <Route
-            path="/"
-            exact
-            // render={(props) => (
-            //   <>
-            //     <JobList />
-            //   </>
-            // )}
-            component={JobList}
-          />
           <Route path="/about" component={About} />;
           <Footer />
         </Container>

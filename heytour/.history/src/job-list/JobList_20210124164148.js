@@ -72,13 +72,15 @@ export default function JobList() {
         {/* {jobs && */}
         {state.jobs.map((job) => {
           return (
-            <JobListContent
-              key={job.id}
-              //isLoading={jobListResponse.isLoading}
-              job={job}
-              deleteJob={handleDelete}
-              onEdit={handleJobDetailEDIT}
-            />
+            <Link to={"/jobs/" + job.id}>
+              <JobListContent
+                key={job.id}
+                //isLoading={jobListResponse.isLoading}
+                job={job}
+                deleteJob={handleDelete}
+                onEdit={handleJobDetailEDIT}
+              />
+            </Link>
           );
         })}
       </Grid>

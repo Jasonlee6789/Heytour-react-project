@@ -4,7 +4,8 @@ import JobAdmin from "./job-list/JobAdmin";
 import { Container } from "semantic-ui-react";
 import Footer from "./common/Footer";
 import About from "./common/About";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   //  const [isAdmin, setIsAdmin] = useState(false);
@@ -12,18 +13,13 @@ function App() {
     <Router>
       <div className="App">
         <AppMenu />
+        <Switch>
+          <Route path="/admin/" exact component={JobAdmin} />;
+          {/* render={(routeProps)=>{return<JobAdmin {...routeProps}/>}} */}
+          <Route path={("/", "/home/")} exact component={JobList} />;
+        </Switch>
         <Container style={{ margin: "1em" }}>
-          <Route
-            path="/"
-            exact
-            // render={(props) => (
-            //   <>
-            //     <JobList />
-            //   </>
-            // )}
-            component={JobList}
-          />
-          <Route path="/about" component={About} />;
+          <JobList />
           <Footer />
         </Container>
       </div>

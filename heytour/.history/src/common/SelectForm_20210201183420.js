@@ -21,7 +21,7 @@ const SelectForm = () => {
 
   return (
     <div>
-      {location.pathname === "/" && (
+      {lication.pathname === "/" && (
         <Segment basic textAlign="right">
           <Input
             action={{ color: "blue", content: "Search" }}

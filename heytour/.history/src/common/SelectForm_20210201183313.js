@@ -21,26 +21,24 @@ const SelectForm = () => {
 
   return (
     <div>
-      {location.pathname === "/" && (
-        <Segment basic textAlign="right">
-          <Input
-            action={{ color: "blue", content: "Search" }}
-            icon="search"
-            iconPosition="left"
-            placeholder="Enter Title to search "
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value);
-            }}
-            onKeyDown={(e) => {
-              if (e.keyCode === 13) {
-                console.log("执行搜索工作的方法");
-                fetchList(query);
-              }
-            }}
-          />
-        </Segment>
-      )}
+      <Segment basic textAlign="right">
+        <Input
+          action={{ color: "blue", content: "Search" }}
+          icon="search"
+          iconPosition="left"
+          placeholder="Enter Title to search "
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+          }}
+          onKeyDown={(e) => {
+            if (e.keyCode === 13) {
+              console.log("执行搜索工作的方法");
+              fetchList(query);
+            }
+          }}
+        />
+      </Segment>
     </div>
   );
 };

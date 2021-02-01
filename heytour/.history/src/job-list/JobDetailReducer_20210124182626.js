@@ -1,6 +1,5 @@
 export default function jobDetailReducer(state, action) {
   switch (action.type) {
-    // type：字符串，动作的类型
     case "VALIDATION_ERROR":
       return {
         ...state,

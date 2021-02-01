@@ -16,12 +16,11 @@ function App() {
           <Route
             path="/"
             exact
-            // render={(props) => (
-            //   <>
-            //     <JobList />
-            //   </>
-            // )}
-            component={JobList}
+            render={(props) => (
+              <>
+                <JobList />
+              </>
+            )}
           />
           <Route path="/about" component={About} />;
           <Footer />

@@ -21,7 +21,7 @@ function App() {
             //     <JobList />
             //   </>
             // )}
-            component={JobList}
+            component={JobList /}
           />
           <Route path="/about" component={About} />;
           <Footer />

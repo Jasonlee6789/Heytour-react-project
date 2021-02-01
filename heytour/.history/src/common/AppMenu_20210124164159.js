@@ -54,10 +54,7 @@ export default function AppMenu() {
         <Link to="/">
           <Menu.Item name="Heytour-Jing" />
         </Link>
-        <Menu.Item>
-          {" "}
-          <SelectForm />
-        </Menu.Item>
+        <SelectForm />
         {state.authenticated && (
           <Menu.Item>
             <NavAdmin />

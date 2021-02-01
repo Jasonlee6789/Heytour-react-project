@@ -2,6 +2,7 @@ import React, { useEffect, useState, useReducer } from "react";
 import { Grid, Breadcrumb, Pagination } from "semantic-ui-react";
 import { useJobDelete, useJobList } from "./JobListAPI";
 
+import SelectForm from "../common/SelectForm";
 import { Link } from "react-router-dom";
 import JobListContent from "./JobListContent";
 import JobDetail from "./JobDetail";
@@ -65,20 +66,22 @@ export default function JobList() {
         <Breadcrumb.Divider />
         <Breadcrumb.Section active>Jobs</Breadcrumb.Section>
       </Breadcrumb>
-
+      <SelectForm />
       <Grid>
         {/* {jobListResponse.data &&
           jobListResponse.data.map((job, index) => { */}
         {/* {jobs && */}
         {state.jobs.map((job) => {
           return (
-            <JobListContent
-              key={job.id}
-              //isLoading={jobListResponse.isLoading}
-              job={job}
-              deleteJob={handleDelete}
-              onEdit={handleJobDetailEDIT}
-            />
+            <Link to={"/jobs/" + job.id}>
+              <JobListContent
+                key={job.id}
+                //isLoading={jobListResponse.isLoading}
+                job={job}
+                deleteJob={handleDelete}
+                onEdit={handleJobDetailEDIT}
+              />
+            </Link>
           );
         })}
       </Grid>

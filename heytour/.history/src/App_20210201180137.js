@@ -12,17 +12,16 @@ function App() {
     <Router>
       <div className="App">
         <AppMenu />
+        <Route
+          path="/"
+          exact
+          render={(props) => <div></div>}
+          component={JobList}
+        />
+        ;{/* render={(routeProps)=>{return<JobAdmin {...routeProps}/>}} */}
+        <Route path={("/", "/home/")} exact component={JobList} />;
         <Container style={{ margin: "1em" }}>
-          <Route
-            path="/"
-            exact
-            // render={(props) => (
-            //   <>
-            //     <JobList />
-            //   </>
-            // )}
-            component={JobList}
-          />
+          <JobList />
           <Route path="/about" component={About} />;
           <Footer />
         </Container>
