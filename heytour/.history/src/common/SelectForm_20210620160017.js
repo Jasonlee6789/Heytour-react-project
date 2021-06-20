@@ -7,12 +7,11 @@ import servicePath from "../config/apiUrl";
 
 const SelectForm = () => {
   const [text, setText] = useState([]);
-  // const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("");
   const location = useLocation();
-
   const fetchList = async (query) => {
     try {
-      const data = await axios.get(servicePath.getJobs + `${query}`);
+      const data = await axios.get(servicePath.getJobs + `&title=${query}`);
       text && setText(text);
     } catch (error) {
       throw error;
@@ -33,16 +32,15 @@ const SelectForm = () => {
             onChange={(e) => {
               setText(e.target.value);
               console.log(e.target.value);
-              // const Title = fetchList("Marketing");
-              // console.log(Title);
             }}
             onKeyDown={(e) => {
               if (e.keyCode === 13) {
                 console.log("执行搜索工作的方法");
+                fetchList(query);
               }
             }}
           />
-          <Button type="submit" onClick={fetchList("Teacher")}></Button>
+          <Button type="submit"></Button>
         </Segment>
       )}
     </div>

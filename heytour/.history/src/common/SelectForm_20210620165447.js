@@ -14,6 +14,7 @@ const SelectForm = () => {
     try {
       const data = await axios.get(servicePath.getJobs + `${query}`);
       text && setText(text);
+      return data;
     } catch (error) {
       throw error;
     }
@@ -33,8 +34,8 @@ const SelectForm = () => {
             onChange={(e) => {
               setText(e.target.value);
               console.log(e.target.value);
-              // const Title = fetchList("Marketing");
-              // console.log(Title);
+              const Title = fetchList("Marketing");
+              console.log(Title);
             }}
             onKeyDown={(e) => {
               if (e.keyCode === 13) {
@@ -42,7 +43,7 @@ const SelectForm = () => {
               }
             }}
           />
-          <Button type="submit" onClick={fetchList("Teacher")}></Button>
+          <Button type="submit"></Button>
         </Segment>
       )}
     </div>

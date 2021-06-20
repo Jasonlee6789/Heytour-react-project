@@ -65,26 +65,26 @@ export default function JobList() {
         <Breadcrumb.Divider />
         <Breadcrumb.Section active>Jobs</Breadcrumb.Section>
       </Breadcrumb>
-      {/* {state.isLoading ? (
+      {isLoading ? (
         <h1>isLoading...</h1>
-      ) : ( */}
-      <Grid>
-        {/* {jobListResponse.data &&
+      ) : (
+        <Grid>
+          {/* {jobListResponse.data &&
      jobListResponse.data.map((job, index) => { */}
-        {/* {jobs && */}
-        {state.jobs.map((job) => {
-          return (
-            <JobListContent
-              key={job.id}
-              //isLoading={jobListResponse.isLoading}
-              job={job}
-              deleteJob={handleDelete}
-              onEdit={handleJobDetailEDIT}
-            />
-          );
-        })}
-      </Grid>
-      {/* )} */}
+          {/* {jobs && */}
+          {state.jobs.map((job) => {
+            return (
+              <JobListContent
+                key={job.id}
+                //isLoading={jobListResponse.isLoading}
+                job={job}
+                deleteJob={handleDelete}
+                onEdit={handleJobDetailEDIT}
+              />
+            );
+          })}
+        </Grid>
+      )}
 
       {state.jobDetailOpen && (
         <JobDetail

@@ -33,8 +33,8 @@ const SelectForm = () => {
             onChange={(e) => {
               setText(e.target.value);
               console.log(e.target.value);
-              // const Title = fetchList("Marketing");
-              // console.log(Title);
+              const Title = fetchList("Marketing");
+              console.log(Title);
             }}
             onKeyDown={(e) => {
               if (e.keyCode === 13) {
