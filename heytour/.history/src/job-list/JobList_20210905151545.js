@@ -38,10 +38,6 @@ export default function JobList() {
   //const pages = 3;
   // let pageLen = Math.ceil(jobs.length / pages);
 
-  function handleSearch(filter) {
-    setJobListFilter(filter);
-  }
-
   function handleDelete(id) {
     setJobId(id);
   }
@@ -68,7 +64,7 @@ export default function JobList() {
         <Breadcrumb.Section active>Jobs</Breadcrumb.Section>
       </Breadcrumb>
 
-      <SelectForm handleSearch={handleSearch} />
+      <SelectForm />
 
       {/* {state.isLoading ? (
         <h1>isLoading...</h1>

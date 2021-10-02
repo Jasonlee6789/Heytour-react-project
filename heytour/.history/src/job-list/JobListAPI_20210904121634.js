@@ -29,7 +29,7 @@ function jobAPIReducer(state, action) {
       throw new Error();
   }
 }
-//查-------------------拿全部后台数据或者查着拿数据
+
 export function useJobList(initialFilter) {
   const [state, dispatch] = useReducer(jobAPIReducer, {
     isLoading: false,
@@ -49,7 +49,7 @@ export function useJobList(initialFilter) {
     // function sleep(ms) {
     //   return new Promise((resolve) => setTimeout(resolve, ms));
     // }
-    async function getJobs(filter) {
+    async function getJobs() {
       dispatch({ type: "FETCH_INIT" });
       // const headers = {
       //   "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export function useJobList(initialFilter) {
       //await sleep(600);
       // dispatch({ type: "FETCH_SUCCESS", payload: data });
       try {
-        const response = await axios.get(filter ? `url?title=${filter}` : url);
+        const response = await axios.get(url);
         console.log(response);
         dispatch({ type: "FETCH_SUCCESS", payload: response.data });
       } catch (error) {
@@ -74,7 +74,7 @@ export function useJobList(initialFilter) {
 
   return [state, setFilter];
 }
-//删
+
 export function useJobDelete() {
   const didMountRef = useRef(false);
   //useRef可以保存组件更新前的一些状态，仅仅是在路径中起到缓存数据的作用
@@ -103,8 +103,7 @@ export function useJobDelete() {
         dispatch({ type: "FETCH_FAILURE" });
       }
     };
-    //useRef.current property(returns a mutable ref object) is initialized to the passed argument (initialValue).
-    //The returned object will persist for the full lifetime of the component.
+
     if (didMountRef.current && id) {
       deleteJob();
     } else {
@@ -114,7 +113,7 @@ export function useJobDelete() {
 
   return [state, setId];
 }
-//改
+
 export function useJobSave() {
   const didMountRef = useRef(false);
   //useRef修改ref的值不会重新render,在组件更新时触发设置成false
@@ -167,7 +166,7 @@ export function useJobSave() {
   //一个是给出去的state 另一个是用来给consumer更新state的
   return [state, setJob];
 }
-//增
+
 export function useJobPost() {
   const didMountRef = useRef(false);
 

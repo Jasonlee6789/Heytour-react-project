@@ -68,7 +68,7 @@ export default function JobList() {
         <Breadcrumb.Section active>Jobs</Breadcrumb.Section>
       </Breadcrumb>
 
-      <SelectForm handleSearch={handleSearch} />
+      <SelectForm />
 
       {/* {state.isLoading ? (
         <h1>isLoading...</h1>

@@ -1,7 +1,7 @@
-import React, { useEffect, uesState, useReducer } from "react";
+import React, { useEffect,,uesState, useReducer } from "react";
 import { Grid, Breadcrumb, Pagination } from "semantic-ui-react";
 import { useJobDelete, useJobList } from "./JobListAPI";
-import SelectForm from "./SelectForm";
+
 import JobListContent from "./JobListContent";
 import JobDetail from "./JobDetail";
 import jobListReducer from "./JobListReducer";
@@ -38,10 +38,6 @@ export default function JobList() {
   //const pages = 3;
   // let pageLen = Math.ceil(jobs.length / pages);
 
-  function handleSearch(filter) {
-    setJobListFilter(filter);
-  }
-
   function handleDelete(id) {
     setJobId(id);
   }
@@ -67,9 +63,6 @@ export default function JobList() {
         <Breadcrumb.Divider />
         <Breadcrumb.Section active>Jobs</Breadcrumb.Section>
       </Breadcrumb>
-
-      <SelectForm handleSearch={handleSearch} />
-
       {/* {state.isLoading ? (
         <h1>isLoading...</h1>
       ) : ( */}

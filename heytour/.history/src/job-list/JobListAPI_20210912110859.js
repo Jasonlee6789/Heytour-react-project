@@ -29,7 +29,7 @@ function jobAPIReducer(state, action) {
       throw new Error();
   }
 }
-//查-------------------拿全部后台数据或者查着拿数据
+//拿全部后台数据或者查着拿数据
 export function useJobList(initialFilter) {
   const [state, dispatch] = useReducer(jobAPIReducer, {
     isLoading: false,
@@ -103,8 +103,7 @@ export function useJobDelete() {
         dispatch({ type: "FETCH_FAILURE" });
       }
     };
-    //useRef.current property(returns a mutable ref object) is initialized to the passed argument (initialValue).
-    //The returned object will persist for the full lifetime of the component.
+
     if (didMountRef.current && id) {
       deleteJob();
     } else {
