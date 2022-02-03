@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   Search,
   Grid,
@@ -115,42 +115,45 @@ import faker from "faker";
 // }
 // export default SelectForm;
 
-const SelectForm = () => {
-  const [text, setText] = useState("");
-  const url = servicePath.getJobs;
+const SelectForm = (props) => {
+  //const url = "https://localhost:5001/api/jobs";
 
-  const fetchList = async (query) => {
-    try {
-      const response = await axios.get(`url?title=${query}`);
-    } catch (error) {
-      throw error;
-    }
-  };
+  // const fetchList = async (query) => {
+  //   try {
+  //     const response = await axios.get(
+  //       `https://localhost:5001/api/jobs?title=${query}`
+  //     );
+  //     console.log("111", response);
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // };
 
   return (
     <div>
       {
-        <Segment basic textAlign="right">
+        <Segment basic textAlign="left">
           <Input
+            type="text"
             action={{ color: "blue", content: "Search" }}
             icon="search"
             iconPosition="left"
             placeholder="Enter Title to search "
-            // value={text}
             onChange={(e) => {
-              // setText(e.target.value);
+              props.handleSearch(e.target.value);
               console.log(e.target.value);
               // const Title = fetchList("Marketing");
               // console.log(Title);
             }}
+            onPressEnter={(e) => {
+              props.handleSearch(e.target.value);
+            }}
             onKeyDown={(e) => {
               if (e.keyCode === 13) {
-                console.log("执行搜索工作的方法"+.target.value);
-                
+                console.log("执行搜索工作的方法");
               }
             }}
           />
-          <Button type="submit" onClick={fetchList("Teacher")}></Button>
         </Segment>
       }
     </div>

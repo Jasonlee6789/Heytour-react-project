@@ -115,36 +115,38 @@ import faker from "faker";
 // }
 // export default SelectForm;
 
-const SelectForm = () => {
+const SelectForm = (props) => {
   //const url = "https://localhost:5001/api/jobs";
 
-  const fetchList = async (query) => {
-    try {
-      const response = await axios.get(
-        `https://localhost:5001/api/jobs?title=${query}`
-      );
-      console.log("111", response);
-    } catch (error) {
-      throw error;
-    }
-  };
+  // const fetchList = async (query) => {
+  //   try {
+  //     const response = await axios.get(
+  //       `https://localhost:5001/api/jobs?title=${query}`
+  //     );
+  //     console.log("111", response);
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // };
 
   return (
     <div>
       {
         <Segment basic textAlign="left">
           <Input
+            type="text"
+            placeholder="Enter Job Title to search "
             action={{ color: "blue", content: "Search" }}
             icon="search"
             iconPosition="left"
-            placeholder="Enter Title to search "
             onChange={(e) => {
+              props.handleSearch(e.target.value);
               console.log(e.target.value);
               // const Title = fetchList("Marketing");
               // console.log(Title);
             }}
             onPressEnter={(e) => {
-              fetchList(e.target.value);
+              props.handleSearch(e.target.value);
             }}
             onKeyDown={(e) => {
               if (e.keyCode === 13) {

@@ -39,14 +39,6 @@ export default function jobListReducer(state, action) {
     case "JOBDETAIL_EDIT":
       return {
         ...state,
-        // jobs.map(j =>
-        // {
-        //   if (j.id === action.job.id)
-        //   { return action.job; }
-        //   else {
-        //     return j;
-        //   }
-        // }),
         jobSelected: action.payload,
         jobDetailOpen: true,
         isCreate: false,

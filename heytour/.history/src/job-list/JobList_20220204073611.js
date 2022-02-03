@@ -1,4 +1,4 @@
-import React, { useEffect, uesState, useReducer } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import { Grid, Breadcrumb, Pagination } from "semantic-ui-react";
 import { useJobDelete, useJobList } from "./JobListAPI";
 import SelectForm from "./SelectForm";
@@ -9,7 +9,7 @@ import jobListReducer from "./JobListReducer";
 export default function JobList() {
   const [jobListResponse, setJobListFilter] = useJobList(null);
   const [jobDeleteResponse, setJobId] = useJobDelete();
-
+  const [filterText, setFilterText] = useState("");
   //const [jobs, setJobs] = useState(null);
 
   const [state, dispatch] = useReducer(jobListReducer, {
@@ -25,6 +25,7 @@ export default function JobList() {
     if (jobListResponse.data && !jobListResponse.isError) {
       // setJobs(jobListResponse.data);
       dispatch({ type: "JOBLIST_SUCCESS", payload: jobListResponse.data });
+      // dispatch actions to update that state.
     }
 
     if (jobDeleteResponse.data && !jobDeleteResponse.isError) {
@@ -38,9 +39,10 @@ export default function JobList() {
   //const pages = 3;
   // let pageLen = Math.ceil(jobs.length / pages);
 
-  function handleSearch(filter) {
-    setJobListFilter(filter);
+  function handleSearch(filterText) {
+    setFilterText(filterText);
   }
+
   function handleDelete(id) {
     setJobId(id);
   }
@@ -67,7 +69,7 @@ export default function JobList() {
         <Breadcrumb.Section active>Jobs</Breadcrumb.Section>
       </Breadcrumb>
 
-      <SelectForm />
+      <SelectForm handleSearch={handleSearch} />
 
       {/* {state.isLoading ? (
         <h1>isLoading...</h1>

@@ -1,5 +1,9 @@
+//all the state update logic  in a single function  “reducer.”
+//event handlers become concise because they only specify the user “actions.”
+// so that the reducer function specifies how the state should update in response to each action!
 export default function jobDetailReducer(state, action) {
   switch (action.type) {
+    // type：字符串，动作的类型
     case "VALIDATION_ERROR":
       return {
         ...state,

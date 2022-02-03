@@ -1,6 +1,4 @@
 //all the state update logic  in a single function  “reducer.”
-//event handlers become concise because they only specify the user “actions.”
-// so that the reducer function specifies how the state should update in response to each action!
 export default function jobListReducer(state, action) {
   switch (action.type) {
     case "JOBLIST_ERROR":
@@ -39,14 +37,6 @@ export default function jobListReducer(state, action) {
     case "JOBDETAIL_EDIT":
       return {
         ...state,
-        // jobs.map(j =>
-        // {
-        //   if (j.id === action.job.id)
-        //   { return action.job; }
-        //   else {
-        //     return j;
-        //   }
-        // }),
         jobSelected: action.payload,
         jobDetailOpen: true,
         isCreate: false,
