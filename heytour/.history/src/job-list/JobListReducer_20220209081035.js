@@ -4,11 +4,8 @@
 //The object you pass to dispatch is called an “action:”
 //The  reducer function is where you will put your state logic.
 //It takes two arguments, the current state and the action object, and it returns the next state for React to set.
-//Actions describe “what happened,” not “what to do.”
 export default function jobListReducer(state, action) {
-  switch (
-    action.type // action types should ideally describe “what the user did” rather than “how you want the state to change”.
-  ) {
+  switch (action.type) {
     case "JOBLIST_ERROR":
       return {
         ...state,

@@ -114,7 +114,12 @@ import faker from "faker";
 //   );
 // }
 // export default SelectForm;
-
+export function filterItems(items, query) {
+  query = query.toLowerCase();
+  return items.filter((item) =>
+    item.name.split("").some((word) => word.toLowerCase().startsWith(query))
+  );
+}
 const SelectForm = (props) => {
   //const url = "https://localhost:5001/api/jobs";
 

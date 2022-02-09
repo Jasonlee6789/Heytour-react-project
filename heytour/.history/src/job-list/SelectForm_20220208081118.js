@@ -114,7 +114,12 @@ import faker from "faker";
 //   );
 // }
 // export default SelectForm;
-
+export function filterItems(items, query) {
+  query = query.toLowerCase();
+  return items.filter((item) =>
+    item.name.split("").some((word) => word.toLowerCase().startsWith(query))
+  );
+}
 const SelectForm = (props) => {
   //const url = "https://localhost:5001/api/jobs";
 
@@ -135,10 +140,11 @@ const SelectForm = (props) => {
         <Segment basic textAlign="left">
           <Input
             type="text"
+            placeholder="Enter Job Title to search "
             action={{ color: "blue", content: "Search" }}
             icon="search"
             iconPosition="left"
-            placeholder="Enter Title to search "
+            value={props.handleSearch.filterText}
             onChange={(e) => {
               props.handleSearch(e.target.value);
               console.log(e.target.value);

@@ -13,7 +13,7 @@ export default function JobList() {
   const [jobDeleteResponse, setJobId] = useJobDelete();
   const [filterText, setFilterText] = useState("");
   //const [jobs, setJobs] = useState(null);
-  //Reducer take the state so far and the action, and return the next state. In this way, they accumulate actions over time into state.
+
   const [state, dispatch] = useReducer(jobListReducer, {
     jobs: [],
     jobSelected: {},

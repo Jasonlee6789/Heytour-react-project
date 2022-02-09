@@ -6,7 +6,7 @@
 //It takes two arguments, the current state and the action object, and it returns the next state for React to set.
 export default function jobDetailReducer(state, action) {
   switch (action.type) {
-    // type：字符串，动作的类型 action types should ideally describe “what the user did” rather than “how you want the state to change”.
+    // type：字符串，动作的类型
     case "VALIDATION_ERROR":
       return {
         ...state,

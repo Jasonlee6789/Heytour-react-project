@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useReducer } from "react";
 import { Grid, Breadcrumb, Pagination } from "semantic-ui-react";
 import { useJobDelete, useJobList } from "./JobListAPI";
-
 import SelectForm from "./SelectForm";
-
 import JobListContent from "./JobListContent";
 import JobDetail from "./JobDetail";
 import jobListReducer from "./JobListReducer";
@@ -13,7 +11,7 @@ export default function JobList() {
   const [jobDeleteResponse, setJobId] = useJobDelete();
   const [filterText, setFilterText] = useState("");
   //const [jobs, setJobs] = useState(null);
-  //Reducer take the state so far and the action, and return the next state. In this way, they accumulate actions over time into state.
+
   const [state, dispatch] = useReducer(jobListReducer, {
     jobs: [],
     jobSelected: {},
@@ -27,7 +25,6 @@ export default function JobList() {
     if (jobListResponse.data && !jobListResponse.isError) {
       // setJobs(jobListResponse.data);
       dispatch({ type: "JOBLIST_SUCCESS", payload: jobListResponse.data });
-      //The object you pass to dispatch is called an “action:”
       // dispatch actions to update that state.
     }
 
