@@ -1,12 +1,4 @@
-import {
-  Button,
-  Grid,
-  Header,
-  Input,
-  Label,
-  Search,
-  Segment,
-} from "semantic-ui-react";
+import { Button, Input, Form, Segment } from "semantic-ui-react";
 import React, { useEffect, useState } from "react";
 
 import axios from "axios";
@@ -37,8 +29,7 @@ const SelectForm = (props) => {
       try {
         const result = await axios(url);
         setData(result.data);
-      }
-      catch(error){
+      } catch (error) {
         setIsError(true);
       }
       setIsLoading(false);
@@ -48,23 +39,23 @@ const SelectForm = (props) => {
   }, [url]);
   return (
     <Segment basic textAlign="left">
-      <Input
-        type="text"
-        placeholder="Enter Job Title to search "
-        value={query}
-        onChange={(e) => {
-          setQuery(e.target.value);
-          console.log(e.target.value);
-        }}
-      />
-      <Button
-        type="button"
-        onClick={() => {
+      <Form
+        onSubmit={(e) => {
           setUrl(`https://localhost:5001/api/jobs/search?query=${query}`);
+          e.preventDefault();
         }}
       >
-        Search
-      </Button>
+        <Input
+          type="text"
+          placeholder="Enter Job Title to search "
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            console.log(e.target.value);
+          }}
+        />
+        <Button type="button">Search</Button>
+      </Form>
     </Segment>
   );
 };
