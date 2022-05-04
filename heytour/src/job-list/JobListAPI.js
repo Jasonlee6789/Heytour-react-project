@@ -78,6 +78,7 @@ export function useJobList(initialFilter) {
 export function useJobDelete() {
   const didMountRef = useRef(false);
   //useRef可以保存组件更新前的一些状态，仅仅是在路径中起到缓存数据的作用
+  //useRef is a React Hook that lets you reference a value that’s not needed for rendering.
   //组件更新时，ref.current中保存的值不会自动更新，需要我们手动更新
   //const url = "https://localhost:44351/api/jobs/";
   const url = servicePath.getJobs;
@@ -119,6 +120,7 @@ export function useJobSave() {
   const didMountRef = useRef(false);
   //useRef修改ref的值不会重新render,在组件更新时触发设置成false
   //useRef可以保存组件更新前的一些状态(还有一种事DOM对象)，仅仅是在路径中起到缓存数据的作用
+  // the current value of that ref through the ref.current property. This value is intentionally mutable, meaning you can both read and write to it
   //组件更新时，ref.current中保存的值(null)不会自动更新，需要我们手动更新
   const url = servicePath.getJobs;
   const [job, setJob] = useState(null);

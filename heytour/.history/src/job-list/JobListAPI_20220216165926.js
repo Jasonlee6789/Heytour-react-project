@@ -29,7 +29,7 @@ function jobAPIReducer(state, action) {
       throw new Error();
   }
 }
-//拿全部后台数据或者查着拿数据
+//查-------------------拿全部后台数据或者查着拿数据
 export function useJobList(initialFilter) {
   const [state, dispatch] = useReducer(jobAPIReducer, {
     isLoading: false,
@@ -49,7 +49,7 @@ export function useJobList(initialFilter) {
     // function sleep(ms) {
     //   return new Promise((resolve) => setTimeout(resolve, ms));
     // }
-    async function getJobs() {
+    async function getJobs(filter) {
       dispatch({ type: "FETCH_INIT" });
       // const headers = {
       //   "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export function useJobList(initialFilter) {
       //await sleep(600);
       // dispatch({ type: "FETCH_SUCCESS", payload: data });
       try {
-        const response = await axios.get(url);
+        const response = await axios.get(filter ? `url?title=${filter}` : url);
         console.log(response);
         dispatch({ type: "FETCH_SUCCESS", payload: response.data });
       } catch (error) {
@@ -103,7 +103,8 @@ export function useJobDelete() {
         dispatch({ type: "FETCH_FAILURE" });
       }
     };
-
+    //useRef.current property(returns a mutable ref object) is initialized to the passed argument (initialValue).
+    //The returned object will persist for the full lifetime of the component.
     if (didMountRef.current && id) {
       deleteJob();
     } else {
@@ -118,6 +119,7 @@ export function useJobSave() {
   const didMountRef = useRef(false);
   //useRef修改ref的值不会重新render,在组件更新时触发设置成false
   //useRef可以保存组件更新前的一些状态(还有一种事DOM对象)，仅仅是在路径中起到缓存数据的作用
+  // the current value of that ref through the ref.current property. This value is intentionally mutable, meaning you can both read and write to it
   //组件更新时，ref.current中保存的值(null)不会自动更新，需要我们手动更新
   const url = servicePath.getJobs;
   const [job, setJob] = useState(null);

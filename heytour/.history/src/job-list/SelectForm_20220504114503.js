@@ -49,7 +49,7 @@ const SelectForm = (props) => {
       <Button
         type="button"
         onClick={() => {
-          setUrl(`https://localhost:5001/api/jobs/search?query=${query}`);
+          setUrl(`https://localhost:5001/api/jobs?title=${query}`);
         }}
       >
         Search

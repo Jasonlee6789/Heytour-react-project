@@ -40,16 +40,27 @@ const SelectForm = (props) => {
       <Input
         type="text"
         placeholder="Enter Job Title to search "
+        // action={{ color: "blue", content: "Search" }}
+        // icon="search"
+        // iconPosition="left"
         value={query}
         onChange={(e) => {
           setQuery(e.target.value);
           console.log(e.target.value);
         }}
+        // onPressEnter={(e) => {
+        //   props.handleSearch(e.target.value);
+        // }}
+        // onKeyDown={(e) => {
+        //   if (e.keyCode === 13) {
+        //     console.log("执行搜索工作的方法");
+        //   }
+        // }}
       />
       <Button
         type="button"
         onClick={() => {
-          setUrl(`https://localhost:5001/api/jobs/search?query=${query}`);
+          setUrl(`https://localhost:5001/api/jobs?title=${query}`);
         }}
       >
         Search
