@@ -27,10 +27,21 @@ const SelectForm = (props) => {
   const [url, setUrl] = useState(
     "https://localhost:5001/api/jobs/search?query=lijing"
   );
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(url);
-      setData(result.data);
+      setIsError(false);
+      setIsLoading(true);
+      try {
+        const result = await axios(url);
+        setData(result.data);
+      }
+      catch(error){
+        setIsError(true);
+      }
+      setIsLoading(false);
     };
 
     fetchData();
