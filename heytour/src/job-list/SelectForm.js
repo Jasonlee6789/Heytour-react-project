@@ -1,47 +1,53 @@
-import { Button, Input, Form, Segment } from "semantic-ui-react";
+import { Button, Form, Input, Segment } from "semantic-ui-react";
 import React, { useEffect, useState } from "react";
 
 import axios from "axios";
 import { useJobList } from "./JobListAPI";
 
 // import { useLocation } from "react-router-dom";
-
 // export default SelectForm;
 export function filterItems(items, query) {
   query = query.toLowerCase();
   return items.filter((item) =>
-    item.name.split("").some((word) => word.toLowerCase().startsWith(query))
+    item.name.split("").some((title) => title.toLowerCase().startsWith(query))
   );
 }
+
 const SelectForm = (props) => {
   const [data, setData] = useState();
-  const [query, setQuery] = useState("lijing");
-  const [url, setUrl] = useState(
-    "https://localhost:5001/api/jobs/search?query=lijing"
-  );
+  const [query, setQuery] = useState("");
+  const [url, setUrl] = useState("servicePath.getJobs/search?query=");
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsError(false);
-      setIsLoading(true);
-      try {
-        const result = await axios(url);
-        setData(result.data);
-      } catch (error) {
-        setIsError(true);
-      }
-      setIsLoading(false);
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     setIsError(false);
+  //     setIsLoading(true);
+  //     try {
+  //       const result = await axios(url);
+  //       setData(result.data);
+  //     } catch (error) {
+  //       setIsError(true);
+  //     }
+  //     setIsLoading(false);
+  //   };
+  //   fetchData();
+  // }, [url]);
 
-    fetchData();
-  }, [url]);
+  const FetchData = async () => {
+    try {
+      const data = await axios(url);
+      if (data) {
+        setData(data);
+      }
+    } catch (error) {}
+  };
   return (
     <Segment basic textAlign="left">
       <Form
         onSubmit={(e) => {
-          setUrl(`https://localhost:5001/api/jobs/search?query=${query}`);
+          setUrl(`servicePath.getJobs/search?query=${query}`);
           e.preventDefault();
         }}
       >
